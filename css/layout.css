@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+#navigation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    background-color: #020617;
+}
+#brand{
+    color: #F8FAFC;
+    margin-left: 50px;
+    padding: 30px;
+    font-size: 24pt;
+    font-family: 'Times New Roman', Times, serif;
+}
+#navigator{
+    margin-left: 300px;
+    max-width: 1100px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#navigator a{
+    text-decoration: none;
+    color: #F8FAFC;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14pt;
+    padding: 10px 10px;
+}
+#navigator a:hover{
+    text-decoration: underline;
+    color: #38BDF8;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14pt;
+    transition: 0.4s;
+}
