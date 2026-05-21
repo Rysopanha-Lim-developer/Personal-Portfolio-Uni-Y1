@@ -34,13 +34,13 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 14pt;
     padding: 10px 10px;
+    transition: 0.4s ease-in-out;
 }
 #navigator a:hover{
     text-decoration: underline;
     color: #38BDF8;
     font-family: 'Times New Roman', Times, serif;
     font-size: 14pt;
-    transition: 0.4s;
 }
 /*Tablet or laptop splited screen*/
 @media (max-width: 768px) {
@@ -59,12 +59,26 @@ body {
 @media (max-width: 480px) {
     #navigation{
         display: flex;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
+    }
+    #brand{
+        font-size: 14px;
     }
     #navigator{
-        margin-left: 20px;
+        margin-left: 5px;
+        margin-top: 25px;
         display: flex;
-        flex-direction: column;
-        padding-bottom: 20px;
+        flex-direction: row;
+    }
+    #navigator a{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12px;
+        transition: 0.4s ease-in-out;
+    }
+    #navigator a:hover{
+    font-size: 12px;
+    text-decoration: underline;
+    color: #38BDF8;
     }
 }
