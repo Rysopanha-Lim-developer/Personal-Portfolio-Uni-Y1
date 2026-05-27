@@ -71,7 +71,7 @@ body {
     #brand{
         margin-top: 0;
         margin-left: 0;
-        font-size: 20px;
+        font-size: 24px;
     }
     #navigator{
         margin-left:0px;   
@@ -94,10 +94,14 @@ body {
     color: #38BDF8;
     }
 }
+
+
 main{
     display: flex;
     flex-direction: column;
 }
+
+
 #aboutMe{
     display: flex;
     flex-direction: row;
@@ -188,15 +192,18 @@ main{
         line-height: 32px;
     }
 }
+
+
 #techStack{
-    border: 1px solid;
     display: flex;
     flex-direction: column;
     align-items: start;
     background-color: #1E293B;
     gap: 50px;
+    overflow: hidden;
 }
 #techIntro{
+    position: relative;
     color: #F8FAFC;
     font-size: 32px;
     font-weight: bold;
@@ -211,6 +218,7 @@ main{
     gap: 30px;  
 }
 .techCard{
+    position: relative;
     cursor: pointer;
     border: 2px solid rgb(22, 208, 208);
     border-radius: 8px;
@@ -234,7 +242,8 @@ main{
     width: 200px;
     height: 200px;
     transition: 0.4s ease-in-out;
-    transform: translate(-8px, 0px);
+    transform: scale(1.1);
+    z-index: 10;
 }
 
 #htmlCard{
@@ -249,4 +258,45 @@ main{
 }
 #pythonCard{
     background-color: #3776AB;
+}
+@media (max-width: 768px){
+    #techStack{
+        width: 100%;
+        align-items: center;
+        padding: 20px 0;
+    }
+    #techIntro{
+        padding-bottom: 0;
+    }
+    #techContainer{
+        justify-content: center;
+        padding: 20px;
+        gap: 15px;  
+        flex-wrap: wrap;
+    }
+    .techCard{
+        font-size: 18px;
+        width: 100px;
+        height: 150px;
+    }
+    .techCard:hover{
+        font-size: 22px;
+        width: 150px;
+        height: 150px;
+    }
+}
+@media (max-width: 480px){
+    #techStack{
+        width: 100%;
+        align-items: center;
+        padding: 20px 0;
+    }
+    #techIntro{
+        font-size: 24px;
+        padding-bottom: 0;
+    }
+    #techContainer{
+        padding: 20px 10px;
+        gap: 10px;
+    }
 }
