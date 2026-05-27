@@ -305,6 +305,13 @@ main{
     color: #F8FAFC;
     background-color: #0F172A;
 }
+#projectContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+}
 #projectIntro{
     border: 1px solid red;
     position: relative;
@@ -313,4 +320,20 @@ main{
     font-weight: bold;
     font-family: sans-serif;
     padding: 30px 50px;
+}
+#allProjects{
+    border: 1px solid white;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    padding: 50px 30px;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-auto-rows: 400px;
+    gap: 20px;
+
+}
+.eachProject{
+    border: 1px solid white;
+
 }
