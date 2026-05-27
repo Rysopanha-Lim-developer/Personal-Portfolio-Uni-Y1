@@ -300,3 +300,17 @@ main{
         gap: 10px;
     }
 }
+
+#project{
+    color: #F8FAFC;
+    background-color: #0F172A;
+}
+#projectIntro{
+    border: 1px solid red;
+    position: relative;
+    color: #F8FAFC;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 30px 50px;
+}
