@@ -334,6 +334,7 @@ main{
 
 }
 .eachProject{
-    border: 1px solid white;
-
+    border: 2px solid rgb(22, 208, 208);
+    border-radius: 12px;
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.5);
 }
