@@ -58,13 +58,25 @@
                     Projects    
                 </p>
                 <div id="allProjects">
-                    <div class="eachProject" id="weatherDisplay"></div>
-                    <div class="eachProject" id="todoList"></div>
-                    <div class="eachProject" id="digitalClock"></div>
-                    <div class="eachProject" id="timer"></div>
-                    <div class="eachProject" id="converter"></div>
-                    <div class="eachProject" id="groceryCalculator"></div>
-                    <div class="eachProject" id="calculator"></div>
+                    <article class="eachProject" id="weatherDisplay">
+                        <form method="get" id="weatherForm">
+                            <label for="cityInput">Weather checker</label>
+                            <input type="text" name="cityInput" id="cityInput" placeholder="City..." autocomplete="off">
+                            <button id="submitCityName">Search</button>
+                        </form>
+                        <div id="weatherDataOutput">
+                            <p id="nameOfCity">City: </p>
+                            <p id="temperature">Temperature: </p>
+                            <p id="windSpeed">Wind speed: </p>
+                            <p id="cloud">Sky/Cloud: </p>
+                        </div>
+                    </article>
+                    <article class="eachProject" id="todoList"></article>
+                    <article class="eachProject" id="digitalClock"></article>
+                    <article class="eachProject" id="timer"></article>
+                    <article class="eachProject" id="converter"></article>
+                    <article class="eachProject" id="groceryCalculator"></article>
+                    <article class="eachProject" id="calculator"></article>
                 </div>
             </div>
         </section>
@@ -82,5 +94,6 @@
     </footer>
 
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/projects.js"></script>
 </body>
 </html>

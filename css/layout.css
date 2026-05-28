@@ -313,7 +313,6 @@ main{
 
 }
 #projectIntro{
-    border: 1px solid red;
     position: relative;
     color: #F8FAFC;
     font-size: 32px;
@@ -322,7 +321,6 @@ main{
     padding: 30px 50px;
 }
 #allProjects{
-    border: 1px solid white;
     position: relative;
     width: 100%;
     justify-content: center;
