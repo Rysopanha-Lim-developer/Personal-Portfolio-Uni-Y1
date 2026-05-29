@@ -103,8 +103,8 @@ function getTimer(){
     let seconds = timeValues.getSeconds();
     let minutes = timeValues.getMinutes();
     let hours = timeValues.getHours();
-    let days = timeValues.getDay();
-    let months = timeValues.getMonth();
+    let days = timeValues.getDate();
+    let months = timeValues.getMonth() + 1; // the +1 is to get current month
     let years = timeValues.getFullYear();
 
     return [seconds, minutes, hours, days, months, years]
