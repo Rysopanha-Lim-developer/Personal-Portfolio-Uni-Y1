@@ -85,3 +85,36 @@ async function Displayer(cityNames) {
         cloud.textContent = "Sky/Cloud: Overcast";
     }
 }
+
+
+//To do list project
+
+
+//Digital clock project
+const clockDisplay = document.querySelector("#clockDisplay");
+
+setInterval(TimeDisplayer, 1000)
+
+function getTimer(){
+
+    let timeValues = new Date()
+
+    let seconds = timeValues.getSeconds();
+    let minutes = timeValues.getMinutes();
+    let hours = timeValues.getHours()
+
+    return [seconds, minutes, hours]
+}
+function TimeDisplayer(){
+    const displayDatas = getTimer();
+    let [secondsValue, minutesValue, hoursValue] = displayDatas;
+    
+    let dayNight = hoursValue >= 12 ? "PM":"AM"
+
+    hoursValue = hoursValue % 12
+    hoursValue = hoursValue.toString().padStart(2, 0);
+    minutesValue = minutesValue.toString().padStart(2, 0);
+    secondsValue = secondsValue.toString().padStart(2, 0);
+
+    clockDisplay.textContent = `${hoursValue}:${minutesValue}:${secondsValue} ${dayNight}`
+}

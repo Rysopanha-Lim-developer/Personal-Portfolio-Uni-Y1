@@ -1,10 +1,4 @@
 /*General styling for the element*/
-label{
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    color: #F8FAFC;
-    padding-bottom: 15px;
-}
 input, button{
     font-family: sans-serif;
     font-size: 1rem;
@@ -38,6 +32,13 @@ input::placeholder{
     align-items: center;
     margin-bottom: 30px;
 }
+#weatherForm label{
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    color: #F8FAFC;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
 #weatherForm input{
     padding: 6px 5px;
     outline: none;
@@ -62,4 +63,37 @@ input::placeholder{
     font-size: 1rem;
     row-gap: 20px;
     width: 100%;
+}
+
+/*To do list project*/
+
+/*Digital Clock project*/
+#digitalClock{
+    background-image: url("../image/digital_clock_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 50px;
+}
+#digitalClockContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#title{
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #3D2B1F;
+}
+#clockDisplay{
+    margin-top: 6rem;
+    font-size: 2rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #3D2B1F;
 }
