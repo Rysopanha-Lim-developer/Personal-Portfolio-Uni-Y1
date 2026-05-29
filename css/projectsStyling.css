@@ -90,8 +90,15 @@ input::placeholder{
     font-weight: bold;
     color: #3D2B1F;
 }
+#dateDisplay{
+    margin-top: 3rem;
+    font-size: 2rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #3D2B1F;
+}
 #clockDisplay{
-    margin-top: 6rem;
+    margin-top: 2rem;
     font-size: 2rem;
     font-family: sans-serif;
     font-weight: bold;

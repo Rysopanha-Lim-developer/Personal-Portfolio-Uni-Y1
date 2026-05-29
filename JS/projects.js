@@ -92,6 +92,7 @@ async function Displayer(cityNames) {
 
 //Digital clock project
 const clockDisplay = document.querySelector("#clockDisplay");
+const dateDisplay = document.querySelector("#dateDisplay")
 
 setInterval(TimeDisplayer, 1000)
 
@@ -101,13 +102,16 @@ function getTimer(){
 
     let seconds = timeValues.getSeconds();
     let minutes = timeValues.getMinutes();
-    let hours = timeValues.getHours()
+    let hours = timeValues.getHours();
+    let days = timeValues.getDay();
+    let months = timeValues.getMonth();
+    let years = timeValues.getFullYear();
 
-    return [seconds, minutes, hours]
+    return [seconds, minutes, hours, days, months, years]
 }
 function TimeDisplayer(){
     const displayDatas = getTimer();
-    let [secondsValue, minutesValue, hoursValue] = displayDatas;
+    let [secondsValue, minutesValue, hoursValue, daysValue, monthsValue, yearsValue] = displayDatas;
     
     let dayNight = hoursValue >= 12 ? "PM":"AM"
 
@@ -115,6 +119,10 @@ function TimeDisplayer(){
     hoursValue = hoursValue.toString().padStart(2, 0);
     minutesValue = minutesValue.toString().padStart(2, 0);
     secondsValue = secondsValue.toString().padStart(2, 0);
+    daysValue = daysValue.toString().padStart(2,0);
+    monthsValue = monthsValue.toString().padStart(2,0);
+    yearsValue = yearsValue.toString();
 
+    dateDisplay.textContent = `${daysValue}/${monthsValue}/${yearsValue}`
     clockDisplay.textContent = `${hoursValue}:${minutesValue}:${secondsValue} ${dayNight}`
 }
