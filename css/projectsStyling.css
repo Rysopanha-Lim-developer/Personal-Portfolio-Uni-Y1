@@ -84,7 +84,7 @@ input::placeholder{
     flex-direction: column;
     align-items: center;
 }
-#title{
+#digitalClockContainer #title{
     font-size: 1.5rem;
     font-family: sans-serif;
     font-weight: bold;
@@ -103,4 +103,79 @@ input::placeholder{
     font-family: sans-serif;
     font-weight: bold;
     color: #3D2B1F;
+}
+
+/* Digital timer project */
+
+#timer{
+    background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),url("../image/timer_background_1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 30px 50px;
+}
+#timerContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#timerContainer #title{
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #00F2FF;
+}
+#timerDisplayer{
+    margin-top: 3rem;
+    font-size: 2.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #FFF;
+}
+#btnContainer{
+    margin-top: 2rem;
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+#btnContainer .btn{
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: 2px solid #00F2FF;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+}
+#startBtn{
+    background-color: #28A745;
+}
+#resetBtn{
+    background-color: #6C757D;
+}
+#stopBtn{
+    background-color: #FF3E3E;
+}
+#startBtn:hover{
+    background-color: rgba(40, 167, 69, 0.8);
+}
+#resetBtn:hover{
+    background-color: rgba(108, 117, 125, 0.8);
+}
+#stopBtn:hover{
+    background-color: rgba(255, 62, 62, 0.8);
+}
+#startBtn:active{
+    background-color: rgba(40, 167, 69, 0.6);
+}
+#resetBtn:active{
+    background-color: rgba(108, 117, 125, 0.6);
+}
+#stopBtn:active{
+    background-color: rgba(255, 62, 62, 0.6);
 }

@@ -126,3 +126,61 @@ function TimeDisplayer(){
     dateDisplay.textContent = `${daysValue}/${monthsValue}/${yearsValue}`
     clockDisplay.textContent = `${hoursValue}:${minutesValue}:${secondsValue} ${dayNight}`
 }
+
+
+//digital timer project
+
+const timerDisplayer = document.getElementById("timerDisplayer")
+
+
+let startTime = 0;
+let elaspedTime = 0;
+let switcher = true;
+let timeUpdate = null;
+
+document.getElementById("startBtn").addEventListener("click", Starter);
+document.getElementById("stopBtn").addEventListener("click", Stopper);
+document.getElementById("resetBtn").addEventListener("click", Reseter);
+
+function Starter(){
+    if(switcher){
+        switcher = false
+        startTime = Date.now() - elaspedTime;
+        timeUpdate = setInterval(TimerDisplay, 10)
+    } 
+}
+
+function Stopper(){
+    if(!switcher){
+        switcher = true
+        clearInterval(timeUpdate)
+    }
+}
+
+function Reseter(){
+    if(switcher){
+        switcher = false;
+        clearInterval(timeUpdate)
+        timerDisplayer.textContent = '00:00:00:00'
+        startTime = 0;
+        elaspedTime = 0;
+    }
+}
+
+function TimerDisplay(){
+    let currentTime = Date.now()
+
+    elaspedTime = currentTime - startTime;
+
+    let milisecondsTime = Math.floor(elaspedTime % 1000)
+    let secondsTime = Math.floor((elaspedTime/1000)% 60)
+    let minutesTime = Math.floor((elaspedTime/(1000*60))%60)
+    let hoursTime = Math.floor((elaspedTime/(1000*60*60)))
+
+    milisecondsTime = milisecondsTime.toString().padStart(3, 0)
+    secondsTime = secondsTime.toString().padStart(2,0)
+    minutesTime = minutesTime.toString().padStart(2,0)
+    hoursTime = hoursTime.toString().padStart(2,0)
+
+    timerDisplayer.textContent = `${hoursTime}:${minutesTime}:${secondsTime}:${milisecondsTime}`
+}
