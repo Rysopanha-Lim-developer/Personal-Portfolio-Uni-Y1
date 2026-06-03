@@ -100,9 +100,77 @@
                             </div>
                         </div>
                     </article>
-                    <article class="eachProject" id="converter"></article>
+                    <article class="eachProject" id="unitConverter">
+                        <div id="UnitConverterContainer">
+                            <label id="title">
+                                Unit Converter
+                            </label>
+                            <div id="coverterContainer">
+                                <div id="choicesContainer">
+                                    <div id="unitContainer">
+                                        <p>Select a unit</p>
+                                        <ul>
+                                            <li class="unit-opts" id="temperature-opt">Temperature</li>
+                                            <li class="unit-opts" id="weight-opt">Weight</li>
+                                            <li class="unit-opts" id="speed-opt">Speed</li>
+                                        </ul>
+                                        <button id="listVisibility">^</button>
+                                    </div>
+                                    <div id="converting">
+                                        <div id="weightUnit">
+                                            <ul id="weight1">
+                                                <li id="kilo1">Kilogram(Kg)</li>
+                                                <li id="pound1">Pound(lbs)</li>
+                                                <li id="stone1">Stone(st)</li>
+                                            </ul>
+                                            <p>→</p>
+                                            <ul id="weight2">
+                                                <li id="kilo2">Kilogram(Kg)</li>
+                                                <li id="pound2">Pound(lbs)</li>
+                                                <li id="stone2">Stone(st)</li>
+                                            </ul>
+                                        </div>
+                                        <div id="temperatureUnit">
+                                            <ul id="temperature1">
+                                                <li id="celsius1">Celsius</li>
+                                                <li id="kelvin1">Kelvin</li>
+                                                <li id="fahrenheit1">Fahrenheit</li>
+                                            </ul>
+                                            <p>→</p>
+                                            <ul id="temperature2">
+                                                <li id="celsius2">Celsius</li>
+                                                <li id="kelvin2">Kelvin</li>
+                                                <li id="fahrenheit2">Fahrenheit</li>
+                                            </ul>
+                                        </div>
+                                        <div id="speedUnit">
+                                            <ul id="speed1">
+                                                <li id="kmPerHour1">Km/h</li>
+                                                <li id="mph1">mph</li>
+                                                <li id="mPerSec1">m/s</li>
+                                            </ul>
+                                            <p>→</p>
+                                            <ul id="speed2">
+                                                <li id="kmPerHour2">Km/h</li>
+                                                <li id="mph2">mph</li>
+                                                <li id="mPerSec2">m/s</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="inputAndResult">
+                                        <form>
+                                            <input type="text" id="unitInput" autocomplete="off">
+                                            <button id="submitConvertionForm">Enter</button>
+                                        </form>
+                                        <p id="convertionResult">Result: </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                     <article class="eachProject" id="groceryCalculator"></article>
                     <article class="eachProject" id="calculator"></article>
+                    <article class="eachProject" id="rockPaperScissor"></article>
                 </div>
             </div>
         </section>
@@ -121,5 +189,6 @@
 
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/projects.js"></script>
+    <script type="module" src="./js/projectsInteraction.js"></script>
 </body>
 </html>

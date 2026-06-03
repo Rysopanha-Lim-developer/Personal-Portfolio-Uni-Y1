@@ -158,8 +158,8 @@ function Stopper(){
 }
 
 function Reseter(){
-    if(switcher){
-        switcher = false;
+    if(!switcher){
+        switcher = true;
         clearInterval(timeUpdate)
         timerDisplayer.textContent = '00:00:00:00'
         startTime = 0;
@@ -184,3 +184,288 @@ function TimerDisplay(){
 
     timerDisplayer.textContent = `${hoursTime}:${minutesTime}:${secondsTime}:${milisecondsTime}`
 }
+
+
+//Unit converter project
+
+const leftUnits = [...document.querySelectorAll("#temperatureUnit #temperature1 li"),
+    ...document.querySelectorAll("#weightUnit #weight1 li"),
+    ...document.querySelectorAll("#speedUnit #speed1 li")];
+
+const rightUnits = [...document.querySelectorAll("#temperatureUnit #temperature2 li"),
+    ...document.querySelectorAll("#weightUnit #weight2 li"),
+    ...document.querySelectorAll("#speedUnit #speed2 li")];
+
+const choosenUnits = [...leftUnits];
+
+const convertedToUnit = [...rightUnits];
+
+
+const submitConvertionForm = document.getElementById("submitConvertionForm");
+
+const unitOpts = [...document.querySelectorAll(".unit-opts")];
+
+let MainUnitSelection = null;
+let LeftUnit = null;
+let RightUnit = null;
+
+
+unitOpts.forEach(unit => {
+        unit.addEventListener("click", () => {
+            MainUnitSelection = unit.textContent;
+        })
+})
+choosenUnits.forEach(unit => {
+        unit.addEventListener("click", () => {
+            LeftUnit = unit.textContent;
+        })
+})
+convertedToUnit.forEach(unit => {
+        unit.addEventListener("click", () => {
+            RightUnit = unit.textContent;
+        })
+})
+
+
+submitConvertionForm.addEventListener("click", event => {
+    event.preventDefault()
+
+    const unitInput = document.getElementById("unitInput").value;
+    const selectedMainUnit = MainUnitSelection;
+
+    TakeInBothUserInputAndSelectedMainUnit(selectedMainUnit,unitInput)
+})
+
+
+function TakeInBothUserInputAndSelectedMainUnit(pickedMainUnit,userInput){
+    try{
+        if(pickedMainUnit === null){
+            throw new Error("Please section a Unit");
+        }
+        switch (pickedMainUnit) {
+            case "Temperature":
+                TemperatureUnitConverter(userInput);
+                console.log(`You have picked ${pickedMainUnit}`);
+                break;
+            case "Weight":
+                WeightUnitConverter(userInput);
+                console.log(`You have picked ${pickedMainUnit}`);
+                break;
+            case "Speed":
+                SpeedUnitConverter(userInput);
+                console.log(`You have picked ${pickedMainUnit}`);
+                break;
+        }
+    }
+    catch(error){
+        document.getElementById("convertionResult").textContent = error
+    }
+}
+
+//Convertion selection
+function TemperatureUnitConverter(inputValue){
+    const selectedLeftUnit = LeftUnit;
+    const selectedRightUnit = RightUnit;
+
+    try{
+        
+        if(selectedLeftUnit === null || selectedRightUnit === null || selectedLeftUnit === selectedRightUnit){
+            throw new Error("Please select 2 different choices");
+        }
+
+        if(inputValue === ""){
+            throw new Error("Input cannot be empty");
+        }
+
+        if(isNaN(Number(inputValue))){
+            throw new Error("Input must be a number");
+        }  
+
+        if(selectedLeftUnit === "Celsius" && selectedRightUnit === "Kelvin"){
+            CelciusToKelvin(inputValue)
+        }
+        else if(selectedLeftUnit === "Celsius" && selectedRightUnit === "Fahrenheit"){
+            CelciusToFahrenheit(inputValue)
+        }
+        else if(selectedLeftUnit === "Kelvin" && selectedRightUnit === "Celsius"){
+            KelvinToCelcius(inputValue)
+        }
+        else if(selectedLeftUnit === "Kelvin" && selectedRightUnit === "Fahrenheit"){
+            KelvinToFahrenheit(inputValue)
+        }
+        else if(selectedLeftUnit === "Fahrenheit" && selectedRightUnit === "Celsius"){
+            FahrenheitToCelcius(inputValue)
+        }
+        else if(selectedLeftUnit === "Fahrenheit" && selectedRightUnit === "Kelvin"){
+            FahrenheitToKelvin(inputValue)
+        }  
+    }
+    catch(err){
+        console.error(err)
+        document.getElementById("convertionResult").textContent = err
+    }
+}
+function SpeedUnitConverter(inputValue){
+    const selectedLeftUnit = LeftUnit;
+    const selectedRightUnit = RightUnit;
+
+    try{
+        
+        if(selectedLeftUnit === null || selectedRightUnit === null || selectedLeftUnit === selectedRightUnit){
+            throw new Error("Please select 2 different choices");
+        }
+
+        if(inputValue === ""){
+            throw new Error("Input cannot be empty");
+        }
+        
+        if(isNaN(Number(inputValue))){
+            throw new Error("Input must be a number");
+        }  
+
+        if(selectedLeftUnit === "Km/h" && selectedRightUnit === "mph"){
+            KmPerHToMph(inputValue)
+        }
+        else if(selectedLeftUnit === "Km/h" && selectedRightUnit === "m/s"){
+            KmPerHToMPerSec(inputValue)
+        }
+        else if(selectedLeftUnit === "mph" && selectedRightUnit === "Km/h"){
+            MphToKmPerH(inputValue)
+        }
+        else if(selectedLeftUnit === "mph" && selectedRightUnit === "m/s"){
+            MphToMPerSec(inputValue)
+        }
+        else if(selectedLeftUnit === "m/s" && selectedRightUnit === "Km/h"){
+            MPerSecToKmPerH(inputValue)
+        }
+        else if(selectedLeftUnit === "m/s" && selectedRightUnit === "mph"){
+            MPerSecToMph(inputValue)
+        }  
+    }
+    catch(err){
+        console.error(err)
+        document.getElementById("convertionResult").textContent = err
+    }
+}
+function WeightUnitConverter(inputValue){
+    const selectedLeftUnit = LeftUnit;
+    const selectedRightUnit = RightUnit;
+
+    try{
+        
+        if(selectedLeftUnit === null || selectedRightUnit === null || selectedLeftUnit === selectedRightUnit){
+            throw new Error("Please select 2 different choices");
+        }
+
+        if(inputValue === ""){
+            throw new Error("Input cannot be empty");
+        }
+        
+        if(isNaN(Number(inputValue))){
+            throw new Error("Input must be a number");
+        } 
+
+        if(selectedLeftUnit === "Kilogram(Kg)" && selectedRightUnit === "Pound(lbs)"){
+            KiloToPound(inputValue)
+        }
+        else if(selectedLeftUnit === "Kilogram(Kg)" && selectedRightUnit === "Stone(st)"){
+            KiloToStone(inputValue)
+        }
+        else if(selectedLeftUnit === "Pound(lbs)" && selectedRightUnit === "Kilogram(Kg)"){
+            PoundToKilo(inputValue)
+        }
+        else if(selectedLeftUnit === "Pound(lbs)" && selectedRightUnit === "Stone(st)"){
+            PoundToStone(inputValue)
+        }
+        else if(selectedLeftUnit === "Stone(st)" && selectedRightUnit === "Kilogram(Kg)"){
+            StoneToKilo(inputValue)
+        }
+        else if(selectedLeftUnit === "Stone(st)" && selectedRightUnit === "Pound(lbs)"){
+            StoneToPound(inputValue)
+        }  
+    }
+    catch(err){
+        console.error(err)
+        document.getElementById("convertionResult").textContent = err
+    }
+}
+
+
+//Temp convertion formula
+function CelciusToKelvin(celcius){
+    let kelvin = (Number(celcius) + 273).toFixed(3)
+    document.getElementById("convertionResult").textContent = `Result: ${kelvin}K`;
+};
+function CelciusToFahrenheit(celcius){
+    let fahrenheit = ((Number(celcius) * (9/5))+32).toFixed(3)
+    document.getElementById("convertionResult").textContent = `Result: ${fahrenheit}°F`;
+};
+function KelvinToCelcius(kelvin){
+    let celcius = (Number(kelvin) - 273).toFixed(3)
+    document.getElementById("convertionResult").textContent = `Result: ${celcius}°C`;
+};
+function KelvinToFahrenheit(kelvin){
+    let fahrenheit = (((Number(kelvin) - 273)*(9/5))+32).toFixed(3)
+    document.getElementById("convertionResult").textContent = `Result: ${fahrenheit}°F`;
+};
+function FahrenheitToCelcius(fahrenheit){
+    let celcius = ((Number(fahrenheit) - 32)*(5/9)).toFixed(3)
+    document.getElementById("convertionResult").textContent = `Result: ${celcius}°C`;
+};
+function FahrenheitToKelvin(fahrenheit){
+    let kelvin = (((Number(fahrenheit) - 32)*(5/9)+273)).toFixed(3)
+    document.getElementById("convertionResult").textContent = `Result: ${kelvin}K`;
+};
+
+//Weight covertion formula
+function KiloToPound(kilo){
+    let pound = (Number(kilo)*2.205).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${pound}lbs`;
+};
+function KiloToStone(kilo){
+    let stone = (Number(kilo)/6.35).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${stone}st`;
+};
+function PoundToKilo(pound){
+    let kilo = (Number(pound)/2.205).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${kilo}kg`;
+};
+function PoundToStone(pound){
+    let stone = (Number(pound)/14).toFixed(3);
+    document.getElementById("convertionResult").textContent =  `Result: ${stone}st`;
+};
+function StoneToKilo(stone){
+    let kilo = (Number(stone)*6.35).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${kilo}kg`;
+};
+function StoneToPound(stone){
+    let pound = (Number(stone)*14).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${pound}lbs`;
+};
+
+
+//Speed convertion formula
+function KmPerHToMph(kmperH){
+    let mph = (Number(kmperH)/1.609).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${mph}mph`;
+};
+function KmPerHToMPerSec(KmperH){
+    let mPerS = (Number(KmperH)/3.6).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${mPerS}m/s`;
+};
+function MphToKmPerH(mph){
+    let kmPerH = (Number(mph)*1.609).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${kmPerH}Km/h`;
+};
+function MphToMPerSec(mph){
+    let mPerSec = (Number(mph)/2.237).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${mPerSec}m/s`;
+};
+function MPerSecToKmPerH(mPerSec){
+    let kmPerH = (Number(mPerSec)*3.6).toFixed(3);
+    document.getElementById("convertionResult").textContent = `Result: ${kmPerH}Km/h`;
+};
+function MPerSecToMph(mPerSec){
+    let mph = (Number(mPerSec)*2.237).toFixed(3);
+    document.getElementById("convertionResult").textContent =`Result: ${mph}mph`;
+};
