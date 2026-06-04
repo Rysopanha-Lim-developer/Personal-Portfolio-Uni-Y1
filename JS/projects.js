@@ -469,3 +469,113 @@ function MPerSecToMph(mPerSec){
     let mph = (Number(mPerSec)*2.237).toFixed(3);
     document.getElementById("convertionResult").textContent =`Result: ${mph}mph`;
 };
+
+// Simple calulator project
+
+const number = document.querySelectorAll(".number");
+const sign = document.querySelectorAll(".sign");
+const calculatorInput = document.querySelector("#calculatorInput");
+const percent = document.getElementById("percent");
+const ce = document.getElementById("ce");
+const ca = document.getElementById("ca");
+const clear = document.getElementById("clear");
+const half = document.getElementById("half");
+const power = document.getElementById("power");
+const root = document.getElementById("root");
+const chageSign = document.getElementById("chageSign");
+const equalSign = document.getElementById("equalSign");
+const maxLength = 15;
+let calNum = null;
+
+// Define what is "allowed"
+const allowedKeys = "0123456789+-*/.";
+
+document.addEventListener("keydown", event => {
+    if (allowedKeys.includes(event.key)) {
+        appendValue(event.key);
+    } else if (event.key === "Enter" || event.key === "=") {
+        calculate();
+    } else if (event.key === "Backspace") {
+        calculatorInput.value = calculatorInput.value.slice(0, -1);
+    }
+});
+
+function appendValue(value) {
+    if (calculatorInput.value.length < maxLength) {
+        calculatorInput.value += value;
+    }
+}
+
+function calculate() {
+    try {
+        calculatorInput.value = eval(calculatorInput.value).toFixed(2);
+    } catch {
+        calculatorInput.value = "Error";
+    }
+}
+
+clear.onclick = function(){
+    calculatorInput.textContent = "";
+    calculatorInput.value = calculatorInput.textContent
+}
+ce.onclick = function(){
+    calculatorInput.textContent = "";
+    calculatorInput.value = calculatorInput.textContent
+}
+ca.onclick = function(){
+    calculatorInput.value = calculatorInput.value.slice(0, -1)
+}
+
+number.forEach(item => {
+    item.onclick = function(){
+        if(calculatorInput.value.length < maxLength){
+            calculatorInput.value += this.textContent; 
+        }
+        else{
+            calculatorInput.value += "";
+        }
+    }
+})
+
+sign.forEach(item => {
+    item.onclick = function(){
+        if(calculatorInput.value.length < maxLength){
+            calculatorInput.value += this.textContent; 
+        }
+        else{
+            calculatorInput.value += "";
+        }
+    }
+})
+
+if(calculatorInput.value.length < maxLength){
+    percent.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calculatorInput.value = (calNum/100)
+    }
+    half.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calculatorInput.value = calNum/2
+    }
+    power.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calculatorInput.value = (calNum ** 2).toFixed(2)
+    }
+    root.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calNum = Math.sqrt(calNum).toFixed(2)
+        calculatorInput.value = calNum
+    }
+    chageSign.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calculatorInput.value = -calNum
+    }
+}
+
+equalSign.onclick = function(){
+    try {
+        calculatorInput.value = eval(calculatorInput.value).toFixed(2);
+    } catch (error) {
+        calculatorInput.value = "Error";
+    }
+}
