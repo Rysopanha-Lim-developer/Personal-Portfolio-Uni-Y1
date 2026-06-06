@@ -579,3 +579,92 @@ equalSign.onclick = function(){
         calculatorInput.value = "Error";
     }
 }
+
+//Password generator
+
+const uppercaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const lowercaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const numberChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const symbolChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "{", "}", "[", "]", "|", ":", ";", "<", ">", ",", ".", "?", "/"];
+
+const everything = [...uppercaseChars, ...lowercaseChars, ...numberChars, ...symbolChars];
+
+const chars4 = document.getElementById("chars-4");
+const chars8 = document.getElementById("chars-8");
+const chars12 = document.getElementById("chars-12");
+const chars15 = document.getElementById("chars-15");
+const passwordLength = document.querySelectorAll(".password-length")
+const generateBtn = document.getElementById("generate-password-btn")
+const passwordDisplay = document.getElementById("generated-password")
+let chosenLength = null;
+
+passwordLength.forEach(length => {
+    length.addEventListener("click", event => {
+        chosenLength = event.target.id
+    })
+})
+generateBtn.addEventListener("click", ()=>{
+    if(chosenLength === "chars-4"){
+        console.log(chosenLength)
+        const fourLongPassword = GenerateFourCharsPassword(everything)
+        passwordDisplay.textContent = fourLongPassword
+    }
+    else if(chosenLength === "chars-8"){
+        console.log(chosenLength)
+        const eightLongPassword = GenerateEightCharsPassword(everything)
+        passwordDisplay.textContent = eightLongPassword
+
+    }
+    else if(chosenLength === "chars-12"){
+        console.log(chosenLength)
+        const tweleLongPassword = GenerateTweleCharsPassword(everything)
+        passwordDisplay.textContent = tweleLongPassword
+    }
+    else if(chosenLength === "chars-15"){
+        console.log(chosenLength)
+        const fifteenLongPassword = GenerateFifteenCharsPassword(everything)
+        passwordDisplay.textContent = fifteenLongPassword
+    }
+})
+
+function GenerateFourCharsPassword(everything){
+    const maxPasswordLength = 4;
+    let generatedPassword = ""
+    for(let i=0; i<maxPasswordLength; i++){
+        const randomChars = Math.floor(Math.random()* (everything.length))
+        generatedPassword += everything[randomChars]
+    }
+    return generatedPassword;
+}
+
+function GenerateEightCharsPassword(everything){
+    const maxPasswordLength = 8;
+    let generatedPassword = ""
+    for(let i=0; i<maxPasswordLength; i++){
+        const randomChars = Math.floor(Math.random()* (everything.length))
+        generatedPassword += everything[randomChars]
+    }
+    return generatedPassword;
+}
+
+function GenerateTweleCharsPassword(everything){
+    const maxPasswordLength = 12;
+    let generatedPassword = ""
+    for(let i=0; i<maxPasswordLength; i++){
+        const randomChars = Math.floor(Math.random()* (everything.length))
+        generatedPassword += everything[randomChars]
+    }
+    return generatedPassword;
+}
+
+function GenerateFifteenCharsPassword(everything){
+    const maxPasswordLength = 15;
+    let generatedPassword = ""
+    for(let i=0; i<maxPasswordLength; i++){
+        const randomChars = Math.floor(Math.random()* (everything.length))
+        generatedPassword += everything[randomChars]
+    }
+    return generatedPassword;
+}
+
+

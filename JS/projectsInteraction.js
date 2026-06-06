@@ -94,3 +94,27 @@ convertedToUnit.forEach(selectedItem => {
         SelectedConvertUnit(selectedItem);
     });
 });
+
+//password generator
+
+const listVisibilityForLength = document.getElementById("listVisibility-for-length");
+const lenghtOpt = document.querySelectorAll(".password-length")
+const chars8 = document.getElementById("chars-8");
+const chars12 = document.getElementById("chars-12");
+const chars15 = document.getElementById("chars-15");
+
+
+listVisibilityForLength.addEventListener("click", () =>{
+    listVisibilityForLength.classList.toggle("spin");
+    chars8.classList.toggle("showList");
+    chars12.classList.toggle("showList");
+    chars15.classList.toggle("showList");
+})
+lenghtOpt.forEach(option =>{
+    option.addEventListener("click", () =>{
+        lenghtOpt.forEach(nonSelected => {
+        nonSelected.classList.remove("selected")}
+        )
+        option.classList.add("selected")
+    })
+})

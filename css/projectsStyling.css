@@ -449,3 +449,126 @@ input::placeholder{
 #equalSign:active{
     background-color: rgb(0, 153, 230);
 }
+
+/*password generator*/
+
+#randomPasswordGenerator{
+    background-image: radial-gradient(rgb(0,0,0,0.4)),url("../image/password_gen_background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 30px;
+    width: max-content;
+}
+#randomPasswordGenerator #title{
+    position: relative;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #FFF;
+}
+#randomPasswordGeneratorContainer{
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#length-opt{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+#length-opt #listVisibility-for-length{
+    position: relative;
+    height: max-content;
+    text-align: top;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    font-size: 32px;
+    margin-top: 0;
+    transition: 0.4s ease-in-out;
+}
+#length-opt #listVisibility-for-length.spin{
+    rotate: 180deg;
+}
+#length-opt p{
+    position: relative;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #FFF;
+    padding-bottom: 15px;
+}
+#length-opt ul{
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.password-length{
+    position: relative;
+    text-align: center;
+    font-size: 1rem;
+    font-family: sans-serif;
+    padding: 2px 4px;
+    backdrop-filter: blur(2px);
+    border: 2px solid #00F2FF;
+    border-radius: 8px;
+    border-collapse: collapse;
+    cursor: pointer;
+    width: 150px;
+}
+.password-length.selected{
+    border: 2px solid #939393;
+}
+#chars-8, #chars-12, #chars-15{
+    display: none;
+    max-height: 0;      
+    overflow: hidden;
+}
+#chars-8.showList, #chars-12.showList, #chars-15.showList{
+    display: list-item;
+    animation: smooth_slide_down 0.3s linear forwards;
+}
+@keyframes smooth_slide_down{
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 100px;
+    }
+}
+#generated-password-tag{
+    position: relative;
+    margin: 10px 0;
+    font-size: 1rem;
+    font-family: sans-serif;
+}
+#generated-password{
+    position: relative;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+    width: 100%;
+    text-align: center;
+}
+#generate-password-btn{
+    position: relative;
+    border: 1px solid #00F2FF;
+    outline: none;
+    padding: 3px 4px;
+    text-align: center;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
