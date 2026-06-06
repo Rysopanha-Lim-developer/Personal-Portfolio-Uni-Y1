@@ -572,3 +572,57 @@ input::placeholder{
     backdrop-filter: blur(10px);
     cursor: pointer;
 }
+
+
+/*Guessing game*/
+#guessingGame{
+    background-image: radial-gradient(rgb(0,0,0,0.5)),url("../image/guessing_game_background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 18px;
+    width: max-content;
+}
+#guessingGame #title{
+    position: relative;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #FFF;
+}
+#guessingGameContainer{
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#guessingGameContainer p{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-family: sans-serif;
+}
+#randomNumbersInput{
+    border: 2px solid #F8FAFC;
+    margin-bottom: 15px;
+    outline: none;
+    text-align: center;
+    pad: 2px 0;
+}
+#randomNumbersSubmit, #randomNumbersReset{
+    position: relative;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.4);
+    backdrop-filter: blur(10px);
+    width: max-content;
+    padding: 4px 5px;
+}
+#randomNumbersSubmit:active, #randomNumbersReset:active{
+    color: rgb(45, 44, 43);
+}

@@ -668,3 +668,44 @@ function GenerateFifteenCharsPassword(everything){
 }
 
 
+//Guessing game
+
+const chancesLeft = document.getElementById("chancesleft");
+const gameResult = document.getElementById("game-result");
+const randomNumbersInput = document.getElementById("randomNumbersInput");
+const randomNumbersSubmit = document.getElementById("randomNumbersSubmit");
+const randomNumbersReset = document.getElementById("randomNumbersReset")
+const engineOutPut = Math.floor((Math.random()*100)+1)
+let maxAttempts = 3;
+let usedAttempt= 1;
+
+randomNumbersSubmit.addEventListener("click", ()=>{
+    const userRandomNums = randomNumbersInput.value;
+    GuessingGameEngine(userRandomNums)
+})
+randomNumbersReset.addEventListener("click", ()=>{
+    maxAttempts = 3;
+    usedAttempt = 1;
+    chancesLeft.textContent = `You have ${maxAttempts} left`
+    gameResult.textContent = "."
+    randomNumbersInput.value = ""
+})
+
+function GuessingGameEngine(randomNums){
+    randomNums = Number(randomNums);
+    
+    if(usedAttempt < maxAttempts){
+        if(randomNums === engineOutPut){
+            gameResult.textContent = `You Win`
+        }
+        else{
+            maxAttempts --;
+            chancesLeft.textContent = `You have ${maxAttempts} left`
+            gameResult.textContent = `Try again`
+        }
+    }
+    else{
+        chancesLeft.textContent = `You Lose`
+        gameResult.textContent = `The number is ${engineOutPut}`
+    }
+}
