@@ -118,3 +118,16 @@ lenghtOpt.forEach(option =>{
         option.classList.add("selected")
     })
 })
+
+//Rock Paper Scissor
+
+const icon2 = document.querySelectorAll(".icon2");
+
+icon2.forEach(icon =>{
+    icon.addEventListener("click", () => {
+        icon2.forEach(unusedIcon =>{
+            unusedIcon.classList.remove("clicked")
+        })
+        icon.classList.toggle("clicked")
+    })
+})

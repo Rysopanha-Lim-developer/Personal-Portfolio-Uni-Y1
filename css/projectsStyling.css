@@ -408,6 +408,7 @@ input::placeholder{
     text-align: right;
     outline: none;
     border: none;
+    border-bottom: 2px solid rgb(191, 188, 188) ;
     font-size: 1.3rem;
     font-family:sans-serif;
     margin-top: 5px;
@@ -625,4 +626,107 @@ input::placeholder{
 }
 #randomNumbersSubmit:active, #randomNumbersReset:active{
     color: rgb(45, 44, 43);
+}
+
+/*rock paper scissor*/
+#rockPaperScissor{
+    background-image: radial-gradient(rgb(0,0,0,0.5)),url("../image/rock_paper_scissor_background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 18px;
+    width: max-content;
+}
+#rockPaperScissor #title{
+    position: relative;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #FFF;
+}
+#rockPaperScissorContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+#firstPlayer, #secondPlayer{
+    display: flex;
+    flex-direction: row;
+    gap: 26px;
+}
+#btnContainer-RPS{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+}
+.btn-RPS{
+    padding: 10px 30px;
+    border: 2px solid;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.btn-RPS:hover{
+    cursor: pointer;
+}
+#startbtn-RPS{
+    background-color: rgb(33, 135, 33);
+}#startbtn-RPS:hover{
+    background-color: rgba(33, 135, 33, 0.6);
+}
+#startbtn-RPS:active{
+    background-color: rgba(33, 135, 33, 0.8);
+}
+#againbtn-RPS{
+    background-color: rgb(218, 23, 23);
+}
+#againbtn-RPS:hover{
+    background-color: rgba(218, 23, 23, 0.6);
+}
+#againbtn-RPS:active{
+    background-color: rgba(218, 23, 23, 0.8);
+}
+.icon1, .icon2{
+    width: 70px;
+    height: 70px;
+    border: 3px solid;
+    border-radius: 8px;
+}
+.icon2:hover{
+    cursor: pointer;
+    border:3px solid rgb(222, 46, 84)
+}
+.icon1.clicked,.icon2.clicked{
+    border: 3px solid rgb(33, 135, 33);
+}
+.vs{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 15px 0;
+}
+#rock1, #rock2{
+    background-image: url("../image/Rock.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#paper1, #paper2{
+    background-image: url("../image/paper.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#scissor1, #scissor2{
+    background-image: url("../image/Scissor.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

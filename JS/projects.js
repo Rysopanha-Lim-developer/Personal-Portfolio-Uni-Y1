@@ -490,7 +490,7 @@ let calNum = null;
 // Define what is "allowed"
 const allowedKeys = "0123456789+-*/.";
 
-document.addEventListener("keydown", event => {
+calculatorInput.addEventListener("keydown", event => {
     if (allowedKeys.includes(event.key)) {
         appendValue(event.key);
     } else if (event.key === "Enter" || event.key === "=") {
@@ -707,5 +707,108 @@ function GuessingGameEngine(randomNums){
     else{
         chancesLeft.textContent = `You Lose`
         gameResult.textContent = `The number is ${engineOutPut}`
+    }
+}
+
+//Rock Paper Scissor
+
+const icon1 = document.querySelectorAll(".icon1");
+const icon2 = document.querySelectorAll(".icon2");
+const startbtnRPS = document.getElementById("startbtn-RPS");
+const againbtnRPS = document.getElementById("againbtn-RPS");
+const rock1 = document.getElementById("rock1");
+const paper1 = document.getElementById("paper1");
+const scissor1 = document.getElementById("scissor1");
+const report = document.getElementById("report")
+let playerChoices;
+
+icon2.forEach(icon =>{
+    icon.addEventListener("click", ()=>{
+        switch (icon.id) {
+            case "rock2":
+                playerChoices = 1
+                break;
+            case "paper2":
+                playerChoices = 2
+                break;
+            case "scissor2":
+                playerChoices = 3
+                break;
+        }
+    })
+})
+
+startbtnRPS.addEventListener("click", ()=>{
+    RockPaperScissorEngine()
+    startbtnRPS.disabled = true
+    startbtnRPS.style.cursor = "not-allowed"
+})
+againbtnRPS.addEventListener("click", ()=>{
+    playerChoices = null;
+    icon1.forEach(icon =>{
+        icon.classList.remove("clicked")
+    })
+    icon2.forEach(icon =>{
+        icon.classList.remove("clicked")
+    })
+    startbtnRPS.disabled = false
+    startbtnRPS.style.cursor = "pointer"
+    report.textContent = "Choose your choice"
+})
+
+
+
+function RockPaperScissorEngine(){
+    const computerValue = Math.floor((Math.random()*3)+1)
+    switch (computerValue) {
+        case 1:
+            rock1.classList.add("clicked")
+            ResultChecker(1)
+            break;
+        case 2:
+            paper1.classList.add("clicked")
+            ResultChecker(2)
+            break;
+        case 3:
+            scissor1.classList.add("clicked")
+            ResultChecker(3)
+            break;
+    }
+}
+
+function ResultChecker(computerValue){
+    if(playerChoices == 1){
+        if(computerValue == 1){
+            report.textContent = "Draw"
+        }
+        else if(computerValue == 2){
+            report.textContent = "You Lose"
+        }
+        else if(computerValue == 3){
+
+            report.textContent = "You Win"
+        }
+    }
+    else if(playerChoices == 2){
+        if(computerValue == 1){
+            report.textContent = "You Win"
+        }
+        else if(computerValue == 2){
+            report.textContent = "Draw"
+        }
+        else if(computerValue == 3){
+            report.textContent = "You Lose"
+        }
+    }
+    else if(playerChoices == 3){
+        if(computerValue == 1){
+            report.textContent = "You Lose"     
+        }
+        else if(computerValue == 2){
+            report.textContent = "You Win"
+        }
+        else if(computerValue == 3){
+            report.textContent = "Draw"
+        }
     }
 }
