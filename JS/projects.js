@@ -89,6 +89,70 @@ async function Displayer(cityNames) {
 
 //To do list project
 
+const addTasks = document.getElementById("taskInput-submit");
+const taskInput = document.getElementById("taskInput");
+const mondayList = document.getElementById("mondayList");
+
+pageReload()
+
+addTasks.addEventListener("click", event =>{
+    event.preventDefault()
+    
+    AddNewTask()
+})
+
+function AddNewTask(){
+
+    if(taskInput.value !== ''){
+
+        const mondayTask = taskInput.value.replace("Delete", "").trim()
+        console.log(mondayTask)
+
+
+        CreateNewTask(mondayTask)
+        TaskDataBase()
+
+        taskInput.value = ""
+    }
+}
+
+function CreateNewTask(task){
+    const newTask = document.createElement("li")
+    newTask.classList = "tasks"
+    newTask.textContent = task
+
+    const deletebtn = document.createElement("button")
+    deletebtn.classList = "delete-btn"
+    deletebtn.textContent = "Delete"
+
+    newTask.append(deletebtn)
+
+    mondayList.appendChild(newTask)
+
+    deletebtn.addEventListener("click", ()=>{
+
+        mondayList.removeChild(newTask)
+
+        TaskDataBase()
+
+    })
+}
+
+function TaskDataBase(){
+    let allTasks = [];
+    mondayList.querySelectorAll("li").forEach(e => {
+        allTasks.push(e.textContent.trim().replace("Delete", ""))
+    })
+    localStorage.setItem("everyTasks", JSON.stringify(allTasks))
+
+}
+
+function pageReload(){
+    const reloadedData = JSON.parse(localStorage.getItem("everyTasks")) || []
+
+    reloadedData.forEach(CreateNewTask)
+}
+
 
 //Digital clock project
 const clockDisplay = document.querySelector("#clockDisplay");
@@ -675,9 +739,10 @@ const gameResult = document.getElementById("game-result");
 const randomNumbersInput = document.getElementById("randomNumbersInput");
 const randomNumbersSubmit = document.getElementById("randomNumbersSubmit");
 const randomNumbersReset = document.getElementById("randomNumbersReset")
-const engineOutPut = Math.floor((Math.random()*100)+1)
+let engineOutPut = Math.floor((Math.random()*100)+1)
 let maxAttempts = 3;
 let usedAttempt= 1;
+console.log(engineOutPut)
 
 randomNumbersSubmit.addEventListener("click", ()=>{
     const userRandomNums = randomNumbersInput.value;
@@ -689,6 +754,7 @@ randomNumbersReset.addEventListener("click", ()=>{
     chancesLeft.textContent = `You have ${maxAttempts} left`
     gameResult.textContent = "."
     randomNumbersInput.value = ""
+    engineOutPut = Math.floor((Math.random()*100)+1)
 })
 
 function GuessingGameEngine(randomNums){

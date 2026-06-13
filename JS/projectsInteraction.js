@@ -1,3 +1,38 @@
+//todo List
+
+const dayselectorDropper = document.getElementById("dayselectorDropper")
+const days = document.querySelectorAll(".days")
+const daysArray = [...days]
+const monday = document.getElementById("monday")
+
+console.log(daysArray)
+
+dayselectorDropper.addEventListener("click", ()=>{
+    dayselectorDropper.classList.toggle("spin")
+    days.forEach(day =>{
+        day.classList.toggle("showList")
+
+        if(day.textContent === daysArray[0].textContent){
+            day.classList.add("selectedDay")
+        }
+    })
+
+})
+daysArray.forEach(day =>{
+    day.addEventListener("click", ()=>{
+        
+        console.log(day.textContent)
+
+        daysArray.forEach(selectedDay =>{
+            selectedDay.classList.remove("selectedDay")
+        })
+        day.classList.add("selectedDay")
+        
+        daysArray[0].textContent = day.textContent;
+    })
+})
+
+
 //unitConverter project
 const listVisibility = document.getElementById("listVisibility");
 const temperature = document.getElementById("temperature-opt");

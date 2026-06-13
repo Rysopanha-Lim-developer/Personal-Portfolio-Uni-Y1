@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/553294db54.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/projectsStyling.css">
     <title>Panha's portfolio</title>
@@ -72,7 +77,67 @@
                         </div>
                     </article>
                     <article class="eachProject" id="todoList">
-
+                        <div id="todoListContainer">
+                            <label id="title">
+                                To-do List
+                            </label>
+                            <div id="daySelector">
+                                <ul id="daySelectorList">
+                                    <li class="days" id="monday-fake">Monday</li>
+                                    <li class="days" id="monday">Monday</li>
+                                    <li class="days" id="tuesday">Tuesday</li>
+                                    <li class="days" id="wednesday">Wednesday</li>
+                                    <li class="days" id="thursday">Thursday</li>
+                                    <li class="days" id="friday">Friday</li>
+                                    <li class="days" id="saturday">Saturday</li>
+                                    <li class="days" id="sunday">Sunday</li>
+                                </ul>
+                                <button id="dayselectorDropper">^</button>
+                            </div>
+                            <div id="daylist">
+                                <form id="taskInput-container">
+                                    <input type="text" id="taskInput" placeholder="Enter your tasks...">
+                                    <button id="taskInput-submit">Add</button>
+                                </form>
+                                <div id="eachday-list">
+                                    <div class="day-list" id="mondayContainer">
+                                        <ul id="mondayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="tuesdayContainer">
+                                        <ul id="tuesdayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="wednesdayContainer">
+                                        <ul id="wednesdayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="thursdayContainer">
+                                        <ul id="thursdayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="fridayContainer">
+                                        <ul id="fridayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="saturdayContainer">
+                                        <ul  id="saturdayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="sundayContainer">
+                                        <ul id="sundayList">
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                     </article>
                     <article class="eachProject" id="digitalClock">
                         <div id="digitalClockContainer">
