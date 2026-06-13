@@ -89,6 +89,70 @@ async function Displayer(cityNames) {
 
 //To do list project
 
+const addTasks = document.getElementById("taskInput-submit");
+const taskInput = document.getElementById("taskInput");
+const mondayList = document.getElementById("mondayList");
+
+pageReload()
+
+addTasks.addEventListener("click", event =>{
+    event.preventDefault()
+    
+    AddNewTask()
+})
+
+function AddNewTask(){
+
+    if(taskInput.value !== ''){
+
+        const mondayTask = taskInput.value.replace("Delete", "").trim()
+        console.log(mondayTask)
+
+
+        CreateNewTask(mondayTask)
+        TaskDataBase()
+
+        taskInput.value = ""
+    }
+}
+
+function CreateNewTask(task){
+    const newTask = document.createElement("li")
+    newTask.classList = "tasks"
+    newTask.textContent = task
+
+    const deletebtn = document.createElement("button")
+    deletebtn.classList = "delete-btn"
+    deletebtn.textContent = "Delete"
+
+    newTask.append(deletebtn)
+
+    mondayList.appendChild(newTask)
+
+    deletebtn.addEventListener("click", ()=>{
+
+        mondayList.removeChild(newTask)
+
+        TaskDataBase()
+
+    })
+}
+
+function TaskDataBase(){
+    let allTasks = [];
+    mondayList.querySelectorAll("li").forEach(e => {
+        allTasks.push(e.textContent.trim().replace("Delete", ""))
+    })
+    localStorage.setItem("everyTasks", JSON.stringify(allTasks))
+
+}
+
+function pageReload(){
+    const reloadedData = JSON.parse(localStorage.getItem("everyTasks")) || []
+
+    reloadedData.forEach(CreateNewTask)
+}
+
 
 //Digital clock project
 const clockDisplay = document.querySelector("#clockDisplay");
@@ -469,3 +533,348 @@ function MPerSecToMph(mPerSec){
     let mph = (Number(mPerSec)*2.237).toFixed(3);
     document.getElementById("convertionResult").textContent =`Result: ${mph}mph`;
 };
+
+// Simple calulator project
+
+const number = document.querySelectorAll(".number");
+const sign = document.querySelectorAll(".sign");
+const calculatorInput = document.querySelector("#calculatorInput");
+const percent = document.getElementById("percent");
+const ce = document.getElementById("ce");
+const ca = document.getElementById("ca");
+const clear = document.getElementById("clear");
+const half = document.getElementById("half");
+const power = document.getElementById("power");
+const root = document.getElementById("root");
+const chageSign = document.getElementById("chageSign");
+const equalSign = document.getElementById("equalSign");
+const maxLength = 15;
+let calNum = null;
+
+// Define what is "allowed"
+const allowedKeys = "0123456789+-*/.";
+
+calculatorInput.addEventListener("keydown", event => {
+    if (allowedKeys.includes(event.key)) {
+        appendValue(event.key);
+    } else if (event.key === "Enter" || event.key === "=") {
+        calculate();
+    } else if (event.key === "Backspace") {
+        calculatorInput.value = calculatorInput.value.slice(0, -1);
+    }
+});
+
+function appendValue(value) {
+    if (calculatorInput.value.length < maxLength) {
+        calculatorInput.value += value;
+    }
+}
+
+function calculate() {
+    try {
+        calculatorInput.value = eval(calculatorInput.value).toFixed(2);
+    } catch {
+        calculatorInput.value = "Error";
+    }
+}
+
+clear.onclick = function(){
+    calculatorInput.textContent = "";
+    calculatorInput.value = calculatorInput.textContent
+}
+ce.onclick = function(){
+    calculatorInput.textContent = "";
+    calculatorInput.value = calculatorInput.textContent
+}
+ca.onclick = function(){
+    calculatorInput.value = calculatorInput.value.slice(0, -1)
+}
+
+number.forEach(item => {
+    item.onclick = function(){
+        if(calculatorInput.value.length < maxLength){
+            calculatorInput.value += this.textContent; 
+        }
+        else{
+            calculatorInput.value += "";
+        }
+    }
+})
+
+sign.forEach(item => {
+    item.onclick = function(){
+        if(calculatorInput.value.length < maxLength){
+            calculatorInput.value += this.textContent; 
+        }
+        else{
+            calculatorInput.value += "";
+        }
+    }
+})
+
+if(calculatorInput.value.length < maxLength){
+    percent.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calculatorInput.value = (calNum/100)
+    }
+    half.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calculatorInput.value = calNum/2
+    }
+    power.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calculatorInput.value = (calNum ** 2).toFixed(2)
+    }
+    root.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calNum = Math.sqrt(calNum).toFixed(2)
+        calculatorInput.value = calNum
+    }
+    chageSign.onclick = function(){
+        calNum = Number(calculatorInput.value)
+        calculatorInput.value = -calNum
+    }
+}
+
+equalSign.onclick = function(){
+    try {
+        calculatorInput.value = eval(calculatorInput.value).toFixed(2);
+    } catch (error) {
+        calculatorInput.value = "Error";
+    }
+}
+
+//Password generator
+
+const uppercaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const lowercaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const numberChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const symbolChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "{", "}", "[", "]", "|", ":", ";", "<", ">", ",", ".", "?", "/"];
+
+const everything = [...uppercaseChars, ...lowercaseChars, ...numberChars, ...symbolChars];
+
+const chars4 = document.getElementById("chars-4");
+const chars8 = document.getElementById("chars-8");
+const chars12 = document.getElementById("chars-12");
+const chars15 = document.getElementById("chars-15");
+const passwordLength = document.querySelectorAll(".password-length")
+const generateBtn = document.getElementById("generate-password-btn")
+const passwordDisplay = document.getElementById("generated-password")
+let chosenLength = null;
+
+passwordLength.forEach(length => {
+    length.addEventListener("click", event => {
+        chosenLength = event.target.id
+    })
+})
+generateBtn.addEventListener("click", ()=>{
+    if(chosenLength === "chars-4"){
+        console.log(chosenLength)
+        const fourLongPassword = GenerateFourCharsPassword(everything)
+        passwordDisplay.textContent = fourLongPassword
+    }
+    else if(chosenLength === "chars-8"){
+        console.log(chosenLength)
+        const eightLongPassword = GenerateEightCharsPassword(everything)
+        passwordDisplay.textContent = eightLongPassword
+
+    }
+    else if(chosenLength === "chars-12"){
+        console.log(chosenLength)
+        const tweleLongPassword = GenerateTweleCharsPassword(everything)
+        passwordDisplay.textContent = tweleLongPassword
+    }
+    else if(chosenLength === "chars-15"){
+        console.log(chosenLength)
+        const fifteenLongPassword = GenerateFifteenCharsPassword(everything)
+        passwordDisplay.textContent = fifteenLongPassword
+    }
+})
+
+function GenerateFourCharsPassword(everything){
+    const maxPasswordLength = 4;
+    let generatedPassword = ""
+    for(let i=0; i<maxPasswordLength; i++){
+        const randomChars = Math.floor(Math.random()* (everything.length))
+        generatedPassword += everything[randomChars]
+    }
+    return generatedPassword;
+}
+
+function GenerateEightCharsPassword(everything){
+    const maxPasswordLength = 8;
+    let generatedPassword = ""
+    for(let i=0; i<maxPasswordLength; i++){
+        const randomChars = Math.floor(Math.random()* (everything.length))
+        generatedPassword += everything[randomChars]
+    }
+    return generatedPassword;
+}
+
+function GenerateTweleCharsPassword(everything){
+    const maxPasswordLength = 12;
+    let generatedPassword = ""
+    for(let i=0; i<maxPasswordLength; i++){
+        const randomChars = Math.floor(Math.random()* (everything.length))
+        generatedPassword += everything[randomChars]
+    }
+    return generatedPassword;
+}
+
+function GenerateFifteenCharsPassword(everything){
+    const maxPasswordLength = 15;
+    let generatedPassword = ""
+    for(let i=0; i<maxPasswordLength; i++){
+        const randomChars = Math.floor(Math.random()* (everything.length))
+        generatedPassword += everything[randomChars]
+    }
+    return generatedPassword;
+}
+
+
+//Guessing game
+
+const chancesLeft = document.getElementById("chancesleft");
+const gameResult = document.getElementById("game-result");
+const randomNumbersInput = document.getElementById("randomNumbersInput");
+const randomNumbersSubmit = document.getElementById("randomNumbersSubmit");
+const randomNumbersReset = document.getElementById("randomNumbersReset")
+let engineOutPut = Math.floor((Math.random()*100)+1)
+let maxAttempts = 3;
+let usedAttempt= 1;
+console.log(engineOutPut)
+
+randomNumbersSubmit.addEventListener("click", ()=>{
+    const userRandomNums = randomNumbersInput.value;
+    GuessingGameEngine(userRandomNums)
+})
+randomNumbersReset.addEventListener("click", ()=>{
+    maxAttempts = 3;
+    usedAttempt = 1;
+    chancesLeft.textContent = `You have ${maxAttempts} left`
+    gameResult.textContent = "."
+    randomNumbersInput.value = ""
+    engineOutPut = Math.floor((Math.random()*100)+1)
+})
+
+function GuessingGameEngine(randomNums){
+    randomNums = Number(randomNums);
+    
+    if(usedAttempt < maxAttempts){
+        if(randomNums === engineOutPut){
+            gameResult.textContent = `You Win`
+        }
+        else{
+            maxAttempts --;
+            chancesLeft.textContent = `You have ${maxAttempts} left`
+            gameResult.textContent = `Try again`
+        }
+    }
+    else{
+        chancesLeft.textContent = `You Lose`
+        gameResult.textContent = `The number is ${engineOutPut}`
+    }
+}
+
+//Rock Paper Scissor
+
+const icon1 = document.querySelectorAll(".icon1");
+const icon2 = document.querySelectorAll(".icon2");
+const startbtnRPS = document.getElementById("startbtn-RPS");
+const againbtnRPS = document.getElementById("againbtn-RPS");
+const rock1 = document.getElementById("rock1");
+const paper1 = document.getElementById("paper1");
+const scissor1 = document.getElementById("scissor1");
+const report = document.getElementById("report")
+let playerChoices;
+
+icon2.forEach(icon =>{
+    icon.addEventListener("click", ()=>{
+        switch (icon.id) {
+            case "rock2":
+                playerChoices = 1
+                break;
+            case "paper2":
+                playerChoices = 2
+                break;
+            case "scissor2":
+                playerChoices = 3
+                break;
+        }
+    })
+})
+
+startbtnRPS.addEventListener("click", ()=>{
+    RockPaperScissorEngine()
+    startbtnRPS.disabled = true
+    startbtnRPS.style.cursor = "not-allowed"
+})
+againbtnRPS.addEventListener("click", ()=>{
+    playerChoices = null;
+    icon1.forEach(icon =>{
+        icon.classList.remove("clicked")
+    })
+    icon2.forEach(icon =>{
+        icon.classList.remove("clicked")
+    })
+    startbtnRPS.disabled = false
+    startbtnRPS.style.cursor = "pointer"
+    report.textContent = "Choose your choice"
+})
+
+
+
+function RockPaperScissorEngine(){
+    const computerValue = Math.floor((Math.random()*3)+1)
+    switch (computerValue) {
+        case 1:
+            rock1.classList.add("clicked")
+            ResultChecker(1)
+            break;
+        case 2:
+            paper1.classList.add("clicked")
+            ResultChecker(2)
+            break;
+        case 3:
+            scissor1.classList.add("clicked")
+            ResultChecker(3)
+            break;
+    }
+}
+
+function ResultChecker(computerValue){
+    if(playerChoices == 1){
+        if(computerValue == 1){
+            report.textContent = "Draw"
+        }
+        else if(computerValue == 2){
+            report.textContent = "You Lose"
+        }
+        else if(computerValue == 3){
+
+            report.textContent = "You Win"
+        }
+    }
+    else if(playerChoices == 2){
+        if(computerValue == 1){
+            report.textContent = "You Win"
+        }
+        else if(computerValue == 2){
+            report.textContent = "Draw"
+        }
+        else if(computerValue == 3){
+            report.textContent = "You Lose"
+        }
+    }
+    else if(playerChoices == 3){
+        if(computerValue == 1){
+            report.textContent = "You Lose"     
+        }
+        else if(computerValue == 2){
+            report.textContent = "You Win"
+        }
+        else if(computerValue == 3){
+            report.textContent = "Draw"
+        }
+    }
+}

@@ -1,3 +1,38 @@
+//todo List
+
+const dayselectorDropper = document.getElementById("dayselectorDropper")
+const days = document.querySelectorAll(".days")
+const daysArray = [...days]
+const monday = document.getElementById("monday")
+
+console.log(daysArray)
+
+dayselectorDropper.addEventListener("click", ()=>{
+    dayselectorDropper.classList.toggle("spin")
+    days.forEach(day =>{
+        day.classList.toggle("showList")
+
+        if(day.textContent === daysArray[0].textContent){
+            day.classList.add("selectedDay")
+        }
+    })
+
+})
+daysArray.forEach(day =>{
+    day.addEventListener("click", ()=>{
+        
+        console.log(day.textContent)
+
+        daysArray.forEach(selectedDay =>{
+            selectedDay.classList.remove("selectedDay")
+        })
+        day.classList.add("selectedDay")
+        
+        daysArray[0].textContent = day.textContent;
+    })
+})
+
+
 //unitConverter project
 const listVisibility = document.getElementById("listVisibility");
 const temperature = document.getElementById("temperature-opt");
@@ -94,3 +129,40 @@ convertedToUnit.forEach(selectedItem => {
         SelectedConvertUnit(selectedItem);
     });
 });
+
+//password generator
+
+const listVisibilityForLength = document.getElementById("listVisibility-for-length");
+const lenghtOpt = document.querySelectorAll(".password-length")
+const chars8 = document.getElementById("chars-8");
+const chars12 = document.getElementById("chars-12");
+const chars15 = document.getElementById("chars-15");
+
+
+listVisibilityForLength.addEventListener("click", () =>{
+    listVisibilityForLength.classList.toggle("spin");
+    chars8.classList.toggle("showList");
+    chars12.classList.toggle("showList");
+    chars15.classList.toggle("showList");
+})
+lenghtOpt.forEach(option =>{
+    option.addEventListener("click", () =>{
+        lenghtOpt.forEach(nonSelected => {
+        nonSelected.classList.remove("selected")}
+        )
+        option.classList.add("selected")
+    })
+})
+
+//Rock Paper Scissor
+
+const icon2 = document.querySelectorAll(".icon2");
+
+icon2.forEach(icon =>{
+    icon.addEventListener("click", () => {
+        icon2.forEach(unusedIcon =>{
+            unusedIcon.classList.remove("clicked")
+        })
+        icon.classList.toggle("clicked")
+    })
+})

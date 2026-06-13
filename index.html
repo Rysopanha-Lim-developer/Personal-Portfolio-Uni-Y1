@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/553294db54.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/projectsStyling.css">
     <title>Panha's portfolio</title>
@@ -72,7 +77,67 @@
                         </div>
                     </article>
                     <article class="eachProject" id="todoList">
-
+                        <div id="todoListContainer">
+                            <label id="title">
+                                To-do List
+                            </label>
+                            <div id="daySelector">
+                                <ul id="daySelectorList">
+                                    <li class="days" id="monday-fake">Monday</li>
+                                    <li class="days" id="monday">Monday</li>
+                                    <li class="days" id="tuesday">Tuesday</li>
+                                    <li class="days" id="wednesday">Wednesday</li>
+                                    <li class="days" id="thursday">Thursday</li>
+                                    <li class="days" id="friday">Friday</li>
+                                    <li class="days" id="saturday">Saturday</li>
+                                    <li class="days" id="sunday">Sunday</li>
+                                </ul>
+                                <button id="dayselectorDropper">^</button>
+                            </div>
+                            <div id="daylist">
+                                <form id="taskInput-container">
+                                    <input type="text" id="taskInput" placeholder="Enter your tasks...">
+                                    <button id="taskInput-submit">Add</button>
+                                </form>
+                                <div id="eachday-list">
+                                    <div class="day-list" id="mondayContainer">
+                                        <ul id="mondayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="tuesdayContainer">
+                                        <ul id="tuesdayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="wednesdayContainer">
+                                        <ul id="wednesdayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="thursdayContainer">
+                                        <ul id="thursdayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="fridayContainer">
+                                        <ul id="fridayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="saturdayContainer">
+                                        <ul  id="saturdayList">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="day-list" id="sundayContainer">
+                                        <ul id="sundayList">
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                     </article>
                     <article class="eachProject" id="digitalClock">
                         <div id="digitalClockContainer">
@@ -168,9 +233,106 @@
                             </div>
                         </div>
                     </article>
-                    <article class="eachProject" id="groceryCalculator"></article>
-                    <article class="eachProject" id="calculator"></article>
-                    <article class="eachProject" id="rockPaperScissor"></article>
+                    <article class="eachProject" id="calculator">
+                        <label id="title">
+                                Calculator
+                        </label>
+                        <div id="calculatorContainer">
+                            <input type="text" id="calculatorInput" placeholder="" readonly>
+                            <div id="btnContainer">
+                                <button class="cal-btn sign" id="percent">%</button>
+                                <button class="cal-btn specialSign" id="ce">CE</button>
+                                <button class="cal-btn specialSign" id="ca">CA</button>
+                                <button class="cal-btn specialSign" id="clear">C</button>
+                                <button class="cal-btn sign" id="half">1/x</button>
+                                <button class="cal-btn sign" id="power">x^2</button>
+                                <button class="cal-btn sign" id="root">√x</button>
+                                <button class="cal-btn sign" id="divid">/</button>
+                                <button class="cal-btn number">7</button>
+                                <button class="cal-btn number">8</button>
+                                <button class="cal-btn number">9</button>
+                                <button class="cal-btn sign" id="multiply">*</button>
+                                <button class="cal-btn number">4</button>
+                                <button class="cal-btn number">5</button>
+                                <button class="cal-btn number">6</button>
+                                <button class="cal-btn sign" id="subtract">-</button>
+                                <button class="cal-btn number">1</button>
+                                <button class="cal-btn number">2</button>
+                                <button class="cal-btn number">3</button>
+                                <button class="cal-btn sign" id="plus">+</button>
+                                <button class="cal-btn specialSign" id="chageSign">+/-</button>
+                                <button class="cal-btn number">0</button>
+                                <button class="cal-btn sign" id="dot">.</button>
+                                <button class="cal-btn" id="equalSign">=</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="eachProject" id="randomPasswordGenerator">
+                        <label id="title">
+                            Password Generator
+                        </label>
+                        <div id="randomPasswordGeneratorContainer">
+                            <div id="length-opt">
+                                <p>choose your prefer length</p>
+                                <ul>
+                                    <li class="password-length" id="chars-4">4 charactes</li>
+                                    <li class="password-length" id="chars-8">8 charactes</li>
+                                    <li class="password-length" id="chars-12">12 charactes</li>
+                                    <li class="password-length" id="chars-15">15 charactes</li>
+                                </ul>
+                                <button id="listVisibility-for-length">^</button>
+                            </div>
+                            <p id="generated-password-tag">
+                                Below is your password
+                            </p>
+                            <p id="generated-password">
+                                
+                            </p>
+                            <button id="generate-password-btn">
+                                Generate
+                            </button>
+                        </div>
+                    </article>
+                    <article class="eachProject" id="guessingGame">
+                        <label id="title">
+                            Guessing game
+                        </label>
+                        <div id="guessingGameContainer">
+                            <p id="instruction">Guess a number between 1 and 100</p>
+                            <p id="chancesleft">You have 3 chances</p>
+                            <p id="game-result">.</p>
+                            <input type="text" id="randomNumbersInput">
+                            <div id="game-control">
+                                <button id="randomNumbersSubmit">Submit</button>
+                                <button id="randomNumbersReset">Restart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="eachProject" id="rockPaperScissor">
+                        <label id="title">
+                            Rock Paper Scissor
+                        </label>
+                        <div id="rockPaperScissorContainer">
+                            <div id="firstPlayer">
+                                <div id="rock1" class="icon1"></div>
+                                <div id="paper1" class="icon1"></div>
+                                <div id="scissor1" class="icon1"></div>
+                            </div>
+                            <p class="vs" id="countdown">VS</p>
+                            <div id="secondPlayer">
+                                <div id="rock2" class="icon2"></div>
+                                <div id="paper2" class="icon2"></div>
+                                <div id="scissor2" class="icon2"></div>
+                            </div>
+                            <div class="vs">
+                                <h2 id="report">Choose your choice</h2>
+                            </div>
+                            <div id="btnContainer-RPS">
+                                <button class="btn-RPS" id="startbtn-RPS">Start</button>
+                                <button class="btn-RPS" id="againbtn-RPS">Again</button>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
