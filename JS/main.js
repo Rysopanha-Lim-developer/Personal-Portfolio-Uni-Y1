@@ -16,11 +16,3 @@ navRetract.addEventListener("click", () =>{
     navBar.classList.remove("showNav")
     navBar.setAttribute('inert', '');
 })
-sectionLink.forEach(link =>{
-    link.addEventListener("click", ()=>{
-        navToggler.classList.remove("hide-burger-nav")
-        navRetract.classList.remove("show-x-nav")
-        navBar.classList.remove("showNav")
-        navBar.setAttribute('inert', '');
-    })
-})
