@@ -12,6 +12,11 @@ input::placeholder{
     font-family: sans-serif;
     color: #F8FAFC;
 }
+.title{
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
 
 /*Specific styling for the element*/
 #weatherDisplay{
@@ -33,16 +38,12 @@ input::placeholder{
     margin-bottom: 30px;
 }
 #weatherForm label{
-    font-size: 1.5rem;
-    font-family: sans-serif;
     color: #F8FAFC;
-    font-weight: bold;
-    padding-bottom: 15px;
 }
 #weatherForm input{
     padding: 6px 5px;
     outline: none;
-    margin-top: 5px;
+    margin-top: 20px;
     margin-bottom: 6px;
 }
 #weatherForm button{
@@ -103,11 +104,7 @@ input::placeholder{
     flex-direction: column;
     align-items: center;
 }
-#todoList #title{
-    position: relative;
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
+#todoList .title{
     color: #262525;
 }
 #daySelector{
@@ -117,7 +114,7 @@ input::placeholder{
     flex-direction: row;
     justify-content: center;
     padding: 0;
-    margin-top: 40px;
+    margin-top: 45px;
     margin-left: 15px;
     gap: 0px;
     height: max-content;
@@ -258,13 +255,15 @@ input::placeholder{
     padding: 3px 4px;
     box-shadow: -1px 1px 2px 1px rgba(0, 0, 0, 0.5);
 
-    &:hover{
-        background-color: rgba(255, 62, 62, 0.8);
-    };
     &:active{
         background-color: rgba(255, 62, 62, 0.9);
     }
 }
+@media (hover: hover){
+        .delete-btn:hover{
+            background-color: rgba(255, 62, 62, 0.8);
+        }
+    }
 
 /*Digital Clock project*/
 #digitalClock{
@@ -283,10 +282,7 @@ input::placeholder{
     flex-direction: column;
     align-items: center;
 }
-#digitalClockContainer #title{
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
+#digitalClockContainer .title{
     color: #3D2B1F;
 }
 #dateDisplay{
@@ -321,10 +317,7 @@ input::placeholder{
     flex-direction: column;
     align-items: center;
 }
-#timerContainer #title{
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
+#timerContainer .title{
     color: #00F2FF;
 }
 #timerDisplayer{
@@ -397,10 +390,7 @@ input::placeholder{
     flex-direction: column;
     align-items: center;
 }
-#UnitConverterContainer #title{
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
+#UnitConverterContainer .title{
     color: #FFF;
 }
 #coverterContainer{
@@ -579,10 +569,7 @@ input::placeholder{
     padding: 30px 50px;
     
 }
-#calculator #title{
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
+#calculator .title{
     color: #FFF;
 
 }
@@ -667,11 +654,7 @@ input::placeholder{
     padding: 30px 30px;
     width: max-content;
 }
-#randomPasswordGenerator #title{
-    position: relative;
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
+#randomPasswordGenerator .title{
     color: #FFF;
 }
 #randomPasswordGeneratorContainer{
@@ -793,11 +776,7 @@ input::placeholder{
     padding: 30px 18px;
     width: max-content;
 }
-#guessingGame #title{
-    position: relative;
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
+#guessingGame .title{
     color: #FFF;
 }
 #guessingGameContainer{
@@ -846,11 +825,7 @@ input::placeholder{
     padding: 30px 18px;
     width: max-content;
 }
-#rockPaperScissor #title{
-    position: relative;
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    font-weight: bold;
+#rockPaperScissor .title{
     color: #FFF;
 }
 #rockPaperScissorContainer{
@@ -935,4 +910,162 @@ input::placeholder{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+@media (max-width: 480px) {
+    /*General styling for the element*/
+    input, button{
+        font-family: sans-serif;
+        font-size: clamp(2dvw, 1rem, 4dvw);
+        color: #F8FAFC;
+        background-color: transparent;
+        border: 2px solid #0F172A;
+        border-radius: 6px;
+    }
+    input::placeholder{
+        font-size: clamp(2dvw, 1rem, 4dvw);
+        font-family: sans-serif;
+        color: #F8FAFC;
+    }
+    .title{
+        font-size: clamp(5dvw, 1rem, 10dvw);
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    p{
+        font-size: clamp(3dvw, 1rem, 4dvw);
+        font-family: sans-serif;
+        font-weight: normal;
+    }
+
+    #weatherDisplay{
+        padding: 30px ;
+    }
+    #weatherForm input{
+        padding: 4px 3px;
+        outline: none;
+    }
+    #weatherForm button{
+        padding: 5px;
+    }
+
+    /*To do list project*/
+    #todoList{
+        padding: 20px;
+    }
+    #daySelector{
+        position: absolute;
+        z-index: 200;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        margin-top: 45px;
+        margin-left: 15px;
+        gap: 0px;
+        height: max-content;
+    }
+    #daySelectorList{
+        position: relative;
+        list-style: none;
+    }
+    #daySelectorList #monday-fake{
+        height:camp(25px, 5dvh, 10dvh);
+    }
+    #daySelectorList .days{
+        min-width: 100px;
+        height:camp(5dvh, 25px, 10dvh);
+        font-size: clamp(3dvw, 0.9rem, 4dvw);
+        font-weight: 600;
+        text-align: center;
+    }
+    #dayselectorDropper{
+        margin-top: -4px;
+    }
+    #daylist{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+    }
+    #taskInput-container{
+
+        input{
+            padding: 2px 3px;
+            font-size: clamp(2dvw, 1rem, 4dvw);
+
+            &::placeholder{
+                color: rgba(0, 0, 0, 0.4);
+                font-size: clamp(2dvw, 1rem, 4dvw);
+            }
+        };
+        button{
+            padding: 2px 3px;
+            font-family: sans-serif;
+            color: #161717;
+            font-size: 1rem;
+            cursor: pointer;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255, 255, 255, 0.2);
+
+            &:active{
+                color: rgba(22, 23, 23, 0.5);
+            }
+        }
+    }
+    #eachday-list .day-list{
+        font-size: clamp(2dvw, 1rem, 4dvw);
+    }
+    .tasks{
+        font-size: clamp(2dvw, 1rem, 4dvw);
+        gap: 0px;
+        border: 1px solid #0F172A;
+        border-radius: 8px;
+        padding: 3px 4px;
+        min-width: 0;
+        width: clamp(10dvw, 220px, 80dvw);
+        justify-content: space-between;
+        
+    }
+    .delete-btn{
+        font-size: clamp(2dvw, 1rem, 4dvw);
+        padding: 3px 4px;
+    }
+
+    /*Digital Clock project*/
+    #digitalClock{
+        background-image: url("/image/digital_clock_background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 50px;
+    }
+    #digitalClockContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #digitalClockContainer .title{
+        color: #3D2B1F;
+    }
+    #dateDisplay{
+        margin-top: 3rem;
+        font-size: 2rem;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: #3D2B1F;
+    }
+    #clockDisplay{
+        margin-top: 2rem;
+        font-size: 2rem;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: #3D2B1F;
+    }
+
 }
