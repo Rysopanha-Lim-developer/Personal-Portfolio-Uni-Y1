@@ -179,7 +179,12 @@ function TimeDisplayer(){
     
     let dayNight = hoursValue >= 12 ? "PM":"AM"
 
-    hoursValue = hoursValue % 12
+    if(hoursValue % 12 == 0){
+        hoursValue = 12
+    }
+    else{
+        hoursValue = hoursValue % 12 
+    }
     hoursValue = hoursValue.toString().padStart(2, 0);
     minutesValue = minutesValue.toString().padStart(2, 0);
     secondsValue = secondsValue.toString().padStart(2, 0);
