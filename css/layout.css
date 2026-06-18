@@ -553,21 +553,6 @@ footer{
         border: 3px solid rgb(22, 208, 208);
     }
 
-
-    #htmlCard{
-        background-color: #E34F26;
-    }
-    #cssCard{
-        background-color: #1572B6;
-    }
-    #jsCard{
-        background-color: #F7DF1E;
-        color: #0F172A;
-    }
-    #pythonCard{
-        background-color: #3776AB;
-    }
-
     #projectContainer{
         display: flex;
         flex-direction: column;
@@ -579,8 +564,8 @@ footer{
         width: 100%;
         justify-content: center;
         display: grid;
-        grid-template-columns: minmax(0, 0.9fr);
-        grid-auto-rows: 400px;
+        grid-template-columns: minmax(0, 0.8fr);
+        grid-auto-rows: 350px;
         padding-top: 14px;
     }
     .eachProject{

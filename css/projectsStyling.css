@@ -1,4 +1,9 @@
 /*General styling for the element*/
+:root{
+    --section-title-font-size-res:clamp(5dvw, 1rem, 10dvw);
+    --input-placeholder-btn-li-font-size-res: clamp(2dvw, 1rem, 4dvw);
+    --date-time-font-size-res:clamp(8dvw, 1.5rem, 15dvw);
+}
 input, button{
     font-family: sans-serif;
     font-size: 1rem;
@@ -353,14 +358,16 @@ input::placeholder{
 #stopBtn{
     background-color: #FF3E3E;
 }
-#startBtn:hover{
-    background-color: rgba(40, 167, 69, 0.8);
-}
-#resetBtn:hover{
-    background-color: rgba(108, 117, 125, 0.8);
-}
-#stopBtn:hover{
-    background-color: rgba(255, 62, 62, 0.8);
+@media(hover:hover){
+    #startBtn:hover{
+        background-color: rgba(40, 167, 69, 0.8);
+    }
+    #resetBtn:hover{
+        background-color: rgba(108, 117, 125, 0.8);
+    }
+    #stopBtn:hover{
+        background-color: rgba(255, 62, 62, 0.8);
+    }
 }
 #startBtn:active{
     background-color: rgba(40, 167, 69, 0.6);
@@ -480,7 +487,8 @@ input::placeholder{
 }
 #converting p{
     padding-top: 28px;
-    font: 1.5rem sans-serif;
+    font-family: sans-serif;
+    font-size: 1.5rem;
     font-weight: bolder;
 
 }
@@ -580,10 +588,11 @@ input::placeholder{
     align-items: center;
     
 }
-#btnContainer{
+#btnContainer-cal{
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     margin-top: 20px;
+    gap: 10px;
 }
 .cal-btn{
     width: 60px;
@@ -607,17 +616,11 @@ input::placeholder{
 .number{
     background-color: rgb(59, 57, 56);
 }
-.number:hover{
-    background-color: rgb(68, 66, 65);
-}
 .number:active{
     background-color: rgb(45, 44, 43);
 }
 .sign{
     background-color: rgb(50, 49, 48);
-}
-.sign:hover{
-    background-color: rgb(45, 44, 43);
 }
 .sign:active{
     background-color: rgb(68, 66, 65);
@@ -625,20 +628,28 @@ input::placeholder{
 .specialSign{
     background-color: rgb(50, 49, 48);
 }
-.specialSign:hover{
-    background-color: rgb(45, 44, 43);
-}
 .specialSign:active{
     background-color: rgb(68, 66, 65);
 }
 #equalSign{
     background-color: rgb(76, 194, 255);
 }
-#equalSign:hover{
-    background-color: rgb(102, 204, 255);
-}
 #equalSign:active{
     background-color: rgb(0, 153, 230);
+}
+@media (hover: hover){
+    .number:hover{
+        background-color: rgb(68, 66, 65);
+    }
+    .sign:hover{
+        background-color: rgb(45, 44, 43);
+    }
+    .specialSign:hover{
+        background-color: rgb(45, 44, 43);
+    }
+    #equalSign:hover{
+        background-color: rgb(102, 204, 255);
+    }
 }
 
 /*password generator*/
@@ -911,24 +922,23 @@ input::placeholder{
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 @media (max-width: 480px) {
     /*General styling for the element*/
     input, button{
         font-family: sans-serif;
-        font-size: clamp(2dvw, 1rem, 4dvw);
+        font-size: var(--input-placeholder-btn-li-font-size-res);
         color: #F8FAFC;
         background-color: transparent;
         border: 2px solid #0F172A;
         border-radius: 6px;
     }
     input::placeholder{
-        font-size: clamp(2dvw, 1rem, 4dvw);
+        font-size: var(--input-placeholder-btn-li-font-size-res);
         font-family: sans-serif;
         color: #F8FAFC;
     }
     .title{
-        font-size: clamp(5dvw, 1rem, 10dvw);
+        font-size: var(--section-title-font-size-res);
         font-family: sans-serif;
         font-weight: bold;
     }
@@ -947,6 +957,7 @@ input::placeholder{
     }
     #weatherForm button{
         padding: 5px;
+        -webkit-tap-highlight-color: transparent;
     }
 
     /*To do list project*/
@@ -990,17 +1001,21 @@ input::placeholder{
         margin-top: 60px;
     }
     #taskInput-container{
+        position: relative;
+        width:clamp(100px, 240px, 60dvw);
 
         input{
+            width:80%;
             padding: 2px 3px;
-            font-size: clamp(2dvw, 1rem, 4dvw);
+            font-size: var(--input-placeholder-btn-li-font-size-res);
 
             &::placeholder{
                 color: rgba(0, 0, 0, 0.4);
-                font-size: clamp(2dvw, 1rem, 4dvw);
+                font-size: var(--input-placeholder-btn-li-font-size-res);
             }
         };
         button{
+            width: 20%;
             padding: 2px 3px;
             font-family: sans-serif;
             color: #161717;
@@ -1008,6 +1023,7 @@ input::placeholder{
             cursor: pointer;
             backdrop-filter: blur(2px);
             background-color: rgba(255, 255, 255, 0.2);
+            -webkit-tap-highlight-color: transparent;
 
             &:active{
                 color: rgba(22, 23, 23, 0.5);
@@ -1015,57 +1031,151 @@ input::placeholder{
         }
     }
     #eachday-list .day-list{
-        font-size: clamp(2dvw, 1rem, 4dvw);
+        position: relative;
+        font-size: var(--input-placeholder-btn-li-font-size-res);
     }
     .tasks{
-        font-size: clamp(2dvw, 1rem, 4dvw);
+        font-size: var(--input-placeholder-btn-li-font-size-res);
         gap: 0px;
         border: 1px solid #0F172A;
         border-radius: 8px;
         padding: 3px 4px;
         min-width: 0;
-        width: clamp(10dvw, 220px, 80dvw);
+        width:clamp(100px, 240px, 60dvw);
         justify-content: space-between;
-        
     }
     .delete-btn{
-        font-size: clamp(2dvw, 1rem, 4dvw);
+        font-size: var(--input-placeholder-btn-li-font-size-res);
         padding: 3px 4px;
+        -webkit-tap-highlight-color: transparent;
     }
 
     /*Digital Clock project*/
     #digitalClock{
-        background-image: url("/image/digital_clock_background.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 50px;
-    }
-    #digitalClockContainer{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    #digitalClockContainer .title{
-        color: #3D2B1F;
+        padding: 20px;
     }
     #dateDisplay{
-        margin-top: 3rem;
-        font-size: 2rem;
-        font-family: sans-serif;
-        font-weight: bold;
-        color: #3D2B1F;
+        font-size: var(--date-time-font-size-res);
     }
     #clockDisplay{
-        margin-top: 2rem;
-        font-size: 2rem;
-        font-family: sans-serif;
-        font-weight: bold;
-        color: #3D2B1F;
+        font-size: var(--date-time-font-size-res);
     }
 
+    /* Digital timer project */
+
+    #timer{
+        padding: 20px;
+    }
+    #timerDisplayer{
+        font-size: var(--date-time-font-size-res);
+    }
+    #btnContainer{
+        margin-top: 2rem;
+        display: flex;
+        gap: 10px;
+        justify-content: space-evenly;
+    }
+    #btnContainer .btn{
+        font-size: var(--input-placeholder-btn-li-font-size-res);
+        padding: 6px 10px;
+        border-radius: 8px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Unit converter project*/
+
+    #unitConverter{
+        padding: 20px;
+    }
+    #unitContainer{
+        gap: 10px;
+        max-height: 100px;
+    }
+    #unitContainer p{
+        font-size: clamp(3dvw, 1rem, 4dvw);
+    }
+    #unitContainer li{
+        font-size: var(--input-placeholder-btn-li-font-size-res);
+        padding: 3px 5px;
+        border-radius: 6px;
+    }
+    #unitContainer #listVisibility{
+        font-size: clamp(5dvw, 1.2rem, 6dvw);
+    }
+
+
+    #converting{
+        position: relative;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #converting ul{
+        width: 80%;
+    }
+    #converting p{
+        padding: 28px 5px;
+        font-size: clamp(2dvw, 0.8rem, 4dvw);
+    }
+
+    #weightUnit ul, #temperatureUnit ul, #speedUnit ul{
+        padding: 5px 0px;
+        
+    }
+    #weightUnit li, #temperatureUnit li, #speedUnit li{
+        border: 1px solid #00F2FF;
+        font-size: var(--input-placeholder-btn-li-font-size-res);
+        padding: 2px 1px;
+        margin-bottom: 3px;
+        min-width: 0;
+        width: clamp(20dvw, 100px, 27dvw);
+    }
+
+
+    #inputAndResult{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0px;
+        text-align: start;
+
+    }
+    #inputAndResult form{
+        position: relative;
+        display: flex;
+        gap: 10px;
+        width:clamp(100px, 240px, 60dvw);
+    }
+    #inputAndResult #unitInput{
+        width: 80%;
+        font-size: var(--input-placeholder-btn-li-font-size-res);
+        padding: 1px 2px;
+    }
+    #inputAndResult #submitConvertionForm{
+        width: 20%;
+        padding: 5px 2px;
+        cursor: pointer;
+    }
+    #inputAndResult #convertionResult{
+        margin: 6px 0;
+        font-size: var(--input-placeholder-btn-li-font-size-res);
+    }
+    
+    /*Calculator project*/
+    #calculator{
+        padding: 20px;
+    }
+    #btnContainer-cal{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        margin-top: 20px;
+        row-gap: 12px;
+        column-gap: max(5px,3dvw);
+    }
+    .cal-btn{
+        width: clamp(5dvw, 45px,13dvw);
+        height: 25px;
+    }
+    #calculatorInput{
+        font-size: var(--input-placeholder-btn-li-font-size-res);
+    }
 }
