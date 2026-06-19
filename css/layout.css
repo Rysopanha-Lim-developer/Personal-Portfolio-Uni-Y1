@@ -409,7 +409,7 @@ footer{
     }
 }
 
-@media (max-width: 480px){
+@media (max-width: 600px){
     html,body {
         scroll-padding-top: 0px;
     }
@@ -570,7 +570,7 @@ footer{
         justify-content: center;
         display: grid;
         grid-template-columns: minmax(0, 0.8fr);
-        grid-auto-rows: 350px;
+        grid-auto-rows: minmax(350px, auto);
         padding-top: 14px;
     }
     .eachProject{

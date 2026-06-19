@@ -932,7 +932,7 @@ input::placeholder{
 
 
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     /*General styling for the element*/
     input, button{
         font-family: sans-serif;
