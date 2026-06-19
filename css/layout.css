@@ -64,7 +64,9 @@ html,body {
 .fa-bars{
     display: none;
 }
-
+.fa-xmark{
+    display: none;
+}
 
 main{
     display: flex;
@@ -408,6 +410,9 @@ footer{
 }
 
 @media (max-width: 480px){
+    html,body {
+        scroll-padding-top: 0px;
+    }
     .section-intro{
         padding: 30px 50px;
         text-align: center;
