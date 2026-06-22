@@ -175,7 +175,7 @@ input::placeholder{
 #dayselectorDropper{
     height: max-content;
     text-align: center;
-    padding-top: 0px;
+    padding: 5px;
     border: none;
     position: relative;
     cursor: pointer;
@@ -476,6 +476,7 @@ input::placeholder{
     font-size: 24px;
     margin-bottom: 5px;
     transition: 0.4s ease-in-out;
+    padding: 5px;
 }
 #unitContainer #listVisibility.spin{
     transform: rotate(0deg);
@@ -700,6 +701,7 @@ input::placeholder{
     font-size: 32px;
     margin-top: 0;
     transition: 0.4s ease-in-out;
+    padding: 5px;
 }
 #length-opt #listVisibility-for-length.spin{
     transform: rotate(0deg);
@@ -1010,6 +1012,7 @@ input::placeholder{
     }
     #dayselectorDropper{
         margin-top: -4px;
+        padding: 5px;
     }
     #daylist{
         position: relative;
@@ -1115,6 +1118,7 @@ input::placeholder{
         border-radius: 6px;
     }
     #unitContainer #listVisibility{
+        padding: 5px;
         font-size: clamp(3dvw, 1.5rem, 4dvw);
     }
 
@@ -1210,6 +1214,7 @@ input::placeholder{
         justify-content: start;
     }
     #length-opt #listVisibility-for-length{
+        padding: 5px;
         font-size: clamp(4dvw, 1.2rem, 5dvw);
     }
     #length-opt p{
