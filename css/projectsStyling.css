@@ -1468,7 +1468,7 @@ input::placeholder{
         padding: 20px;
     }
     #unitContainer{
-        gap: 10px;
+        gap: 5px;
         max-height: 100px;
     }
     #unitContainer p{
