@@ -398,7 +398,7 @@ footer{
     align-items: flex-start;
     padding: 20px 50px;
 }
-#cotactContainer{
+#contactContainer{
     width: 100%;
     position: relative;
     display: flex;
@@ -677,6 +677,78 @@ footer{
         100%{
             opacity: 1;
             transform: translateX(0);
+        }
+    }
+    #educationContainer{
+        height: max-content;
+
+        article{
+            border-radius: 6px;
+            padding: 5px 8px;
+
+            p{
+                width: 30ch;
+            }
+
+            .year-study{
+                font-size: var(--p-font-size-res);
+            }
+        }
+    }
+    .flyINLeft2{
+        animation: flyfromleft2 linear 0.5s both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+
+    }
+    @keyframes flyfromleft2 {
+        0%{
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    .flyINRight2{
+        animation: flyfromRight2 linear 0.5s both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+    }
+    @keyframes flyfromRight2 {
+        0%{
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    .rod{
+        display: none;
+    }
+
+    #copyright{
+        font-size:  var(--p-font-size-res);
+    }
+    #contact{
+        align-items: center;
+        padding: 10px;
+    }
+    #contactContainer{
+        padding: 0 10px;
+        flex-direction: column;
+        row-gap: 0;
+    }
+    .infoContainer{
+        ul{
+            font-size: var(--input-placeholder-btn-li-font-size-res);
+
+            li{
+                padding-bottom: 10px;
+            }
         }
     }
 }   
