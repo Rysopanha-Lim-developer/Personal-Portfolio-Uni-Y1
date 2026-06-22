@@ -9,6 +9,12 @@ html,body {
     scroll-behavior: smooth;
     scroll-padding-top: 95px;
 }
+:root{
+    --section-title-font-size-res:clamp(5dvw, 1rem, 10dvw);
+    --input-placeholder-btn-li-font-size-res: clamp(2dvw, 1rem, 4dvw);
+    --date-time-font-size-res:clamp(8dvw, 1.5rem, 15dvw);
+    --p-font-size-res:clamp(3dvw, 1rem, 4dvw);
+}
 ::-webkit-scrollbar{
     background-color: #0F172A;
 }
@@ -55,17 +61,17 @@ html,body {
     padding: 10px 10px;
     transition: 0.4s ease-in-out;
 }
-#navigator a:hover{
-    text-decoration: underline;
-    color: #38BDF8;
-    font-family: sans-serif;
-    font-size: 1.3rem;
+@media (hover: hover) {
+    #navigator a:hover{
+        text-decoration: underline;
+        color: #38BDF8;
+        font-family: sans-serif;
+        font-size: 1.3rem;
+    }
 }
-.fa-bars{
+.fa-bars, .fa-xmark{
     display: none;
-}
-.fa-xmark{
-    display: none;
+    cursor: pointer;
 }
 
 main{
@@ -199,6 +205,10 @@ main{
     box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.5);
 }
 
+#experience #experience2{
+    display: flex;
+    flex-direction: row;
+}
 #experience{
     position: relative;
     display: flex;
@@ -428,6 +438,17 @@ footer{
         justify-content: flex-start;
         width: 100dvw;
         padding: 5%;
+        z-index: 0;
+    }
+    #navigation.dropDown{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100dvw;
+        padding: 5%;
+        z-index: 1000;
     }
     #navigator{
         position: absolute;
@@ -435,7 +456,7 @@ footer{
         left: 0;
         margin-left: 0;
         width: 100%;
-        height: clamp(380px, 50vh, 70vh);
+        height: clamp(76dvh, 300px, 95vh);
         visibility: hidden;
         opacity: none;
         animation: navDrop 0.5s ease-in-out both;
@@ -447,6 +468,7 @@ footer{
         a{
             opacity: 0;
             visibility: hidden;
+            -webkit-tap-highlight-color:transparent;
         }
     }
     #navigator.showNav{
@@ -473,6 +495,7 @@ footer{
         }
     }
     .fa-bars{
+        -webkit-tap-highlight-color:transparent;
         position: relative;
         display: block;
         color: #F8FAFC;
@@ -484,6 +507,7 @@ footer{
         display: none;
     }
     .fa-xmark{
+        -webkit-tap-highlight-color:transparent;
         position: relative;
         display: none;
         color: #F8FAFC;
@@ -577,5 +601,82 @@ footer{
         border: 2px solid rgb(22, 208, 208);
         border-radius: 12px;
         box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    #experience #experience2{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #experience{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+        width: 100dvw;
+        padding: 20px 0px;
+        background-color: #1E293B;
+
+        article{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 80%;
+            height: 300px;
+            gap: 30px;
+            margin-left: 0px;
+            padding: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+
+            p{
+                color: #F8FAFC;
+                font-weight: normal;
+                font-family: sans-serif;
+                font-size: var( --p-font-size-res);
+                width: 30ch;
+            }
+
+            img{
+                width: 190px;
+                height: 150px;
+                object-fit: cover;
+                object-position: center;
+                border: 2px solid #0F172A;
+                border-radius: 8px;
+            }
+
+        }
+    }
+    .flyINLeft{
+        animation: flyfromleft linear 0.5s both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+    @keyframes flyfromleft {
+        0%{
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    .flyINRight{
+        animation: flyfromRight linear 0.5s both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+    @keyframes flyfromRight {
+        0%{
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 }   
