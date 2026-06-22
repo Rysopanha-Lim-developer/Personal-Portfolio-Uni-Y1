@@ -26,7 +26,7 @@ input::placeholder{
 
 /*Specific styling for the element*/
 #weatherDisplay{
-    background: url("/image/weather_app_background.jpg");
+    background: url("../image/weather_app_background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -75,7 +75,7 @@ input::placeholder{
 
 /*To do list project*/
 #todoList{
-    background-image: url("/image/todolist_background.jpg");
+    background-image: url("../image/todolist_background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -275,7 +275,7 @@ input::placeholder{
 
 /*Digital Clock project*/
 #digitalClock{
-    background-image: url("/image/digital_clock_background.jpg");
+    background-image: url("../image/digital_clock_background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -312,7 +312,7 @@ input::placeholder{
 /* Digital timer project */
 
 #timer{
-    background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),url("/image/timer_background_1.jpg");
+    background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),url("../image/timer_background_1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -388,7 +388,7 @@ input::placeholder{
 /* Unit converter project*/
 
 #unitConverter{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4)), url("/image/unitConverter_background.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4)), url("../image/unitConverter_background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -661,7 +661,7 @@ input::placeholder{
 /*password generator*/
 
 #randomPasswordGenerator{
-    background-image: radial-gradient(rgb(0,0,0,0.4)),url("/image/password_gen_background.jpg");
+    background-image: radial-gradient(rgb(0,0,0,0.4)),url("../image/password_gen_background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -783,7 +783,7 @@ input::placeholder{
 
 /*Guessing game*/
 #guessingGame{
-    background-image: radial-gradient(rgb(0,0,0,0.5)),url("/image/guessing_game_background.jpg");
+    background-image: radial-gradient(rgb(0,0,0,0.5)),url("../image/guessing_game_background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -832,7 +832,7 @@ input::placeholder{
 
 /*rock paper scissor*/
 #rockPaperScissor{
-    background-image: radial-gradient(rgb(0,0,0,0.5)),url("/image/rock_paper_scissor_background.jpg");
+    background-image: radial-gradient(rgb(0,0,0,0.5)),url("../image/rock_paper_scissor_background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -917,19 +917,19 @@ input::placeholder{
     padding: 15px 0;
 }
 #rock1, #rock2{
-    background-image: url("/image/Rock.jpg");
+    background-image: url("../image/Rock.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 #paper1, #paper2{
-    background-image: url("/image/paper.jpg");
+    background-image: url("../image/paper.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 #scissor1, #scissor2{
-    background-image: url("/image/Scissor.jpg");
+    background-image: url("../image/Scissor.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

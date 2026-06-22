@@ -106,7 +106,7 @@ main{
     background-color: #0F172A;
 }
 #profile{
-    background-image: url("/image/Panha's photo.jpg");
+    background-image: url("../image/Panha's photo.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -749,6 +749,7 @@ footer{
 
     #copyright{
         font-size:  var(--input-placeholder-btn-li-font-size-res);
+        text-align: center;
     }
     #contact{
         align-items: center;
@@ -1081,6 +1082,7 @@ footer{
 
     #copyright{
         font-size:  var(--input-placeholder-btn-li-font-size-res);
+        text-align: center;
     }
     #contact{
         align-items: center;
